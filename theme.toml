@@ -1,0 +1,16 @@
+name = 'Terminal'
+license = 'MIT'
+licenselink = 'https://github.com/nickolashkraus/terminal/blob/master/LICENSE'
+description = 'A minimalist Hugo theme using Tailwind CSS and vanilla JavaScript'
+homepage = 'https://github.com/nickolashkraus/terminal'
+demosite = 'https://terminal.nickolaskraus.io'
+tags = ['blog', 'minimal', 'dark', 'tailwind']
+
+[author]
+  name = 'Nickolas Kraus'
+  homepage = 'https://nickolaskraus.io'
+
+[requirements]
+  # NOTE: css.TailwindCSS was added in v0.128.0.
+  # See: https://gohugo.io/functions/css/tailwindcss/
+  hugoVersion = '0.128.0'

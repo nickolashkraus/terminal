@@ -1,4 +1,35 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+baseURL = 'https://terminal.nickolaskraus.io'
+languageCode = 'en-US'
+title = 'Terminal'
 theme = 'terminal'
+
+[markup]
+  [markup.highlight]
+  # See: https://xyproto.github.io/splash/docs/
+  style = 'gruvbox'
+
+[[menus.main]]
+name = 'Home'
+pageRef = '/'
+weight = 10
+
+[[menus.main]]
+name = 'Docs'
+pageRef = '/docs'
+weight = 20
+
+[build]
+  [build.buildStats]
+    enable = true
+  [[build.cachebusters]]
+    source = 'assets/notwatching/hugo_stats\.json'
+    target = 'css'
+
+[module]
+  [[module.mounts]]
+    source = 'assets'
+    target = 'assets'
+  [[module.mounts]]
+    disableWatch = true
+    source = 'hugo_stats.json'
+    target = 'assets/notwatching/hugo_stats.json'
