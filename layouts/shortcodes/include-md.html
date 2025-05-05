@@ -1,0 +1,26 @@
+<!-- prettier-ignore -->
+{{- /*
+  Read the contents of a Markdown file and render as HTML.
+
+  Removes the first line of the Markdown file if it starts with '#'.
+
+  @param {string} path Path to the file.
+
+  @example: {{% include-md "path/to/file" %}}
+
+  NOTE: With Markdown notation, Hugo processes the shortcode before the page
+  content is rendered by the Markdown renderer. This means, for instance, that
+  Markdown headings inside a Markdown-notation shortcode will be included when
+  invoking the TableOfContents method on the Page object.
+
+  See: https://gohugo.io/content-management/shortcodes/#notation
+*/}}
+
+{{ $path := .Get 0 }}
+{{ $content := readFile $path }}
+{{ $lines := split $content "\n" }}
+{{ $firstLine := index $lines 0 }}
+{{ if hasPrefix $firstLine "#" }}
+  {{ $content = delimit (after 1 $lines) "\n" }}
+{{ end }}
+{{ $content | safeHTML }}
