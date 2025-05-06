@@ -73,11 +73,13 @@ This configuration enables key optimizations when using Tailwind CSS with Hugo:
 {{ with (templates.Defer (dict "key" "global")) }}
   {{ with resources.Get "css/main.css" }}
     {{ $opts := dict
-      "minify" hugo.IsProduction
+      "minify" (not hugo.IsDevelopment)
       "inlineImports" true
     }}
     {{ with . | css.TailwindCSS $opts }}
-      {{ if hugo.IsProduction }}
+      {{ if hugo.IsDevelopment }}
+        <link rel="stylesheet" href="{{ .RelPermalink }}" />
+      {{ else }}
         {{ with . | fingerprint }}
           <link
             rel="stylesheet"
@@ -86,8 +88,6 @@ This configuration enables key optimizations when using Tailwind CSS with Hugo:
             crossorigin="anonymous"
           />
         {{ end }}
-      {{ else }}
-        <link rel="stylesheet" href="{{ .RelPermalink }}" />
       {{ end }}
     {{ end }}
   {{ end }}

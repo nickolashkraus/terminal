@@ -169,9 +169,15 @@ const highlightActiveTocItem = (tocLinks, headings) => {
     prevOffsetTop = offsetTop
   })
 
-  // Use the last heading if the page is scrolled to the bottom.
-  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 1) {
+  // Check if the page is scrollable.
+  const isPageScrollable = document.body.scrollHeight > window.innerHeight
+
+  // Use the last heading if the page is scrollable and scrolled to the bottom.
+  if (isPageScrollable && window.innerHeight + window.scrollY >= document.body.offsetHeight - 1) {
     currentHeadingId = headings[headings.length - 1].id
+  } else {
+    // Use the first heading if page is not scrollable.
+    currentHeadingId = headings[0].id
   }
 
   // Remove active class from all links.
