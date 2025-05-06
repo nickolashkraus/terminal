@@ -1,22 +1,172 @@
-body {
-  color: #222;
-  font-family: sans-serif;
-  line-height: 1.5;
-  margin: 1rem;
-  max-width: 768px;
+/*
+ * Load Google Fonts.
+ *
+ * NOTE: Browsers require that @import statements come before any other rules,
+ * so URL imports need to be above imports like @import 'tailwindcss' which are
+ * inlined in the compiled CSS.
+ */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap');
+
+/* Include Tailwind CSS */
+@import 'tailwindcss';
+
+/* Include Tailwind CSS Typography plugin */
+@plugin '@tailwindcss/typography';
+
+/* Facilitate PurgeCSS integration */
+@source 'hugo_stats.json';
+
+@theme {
+  /* Override */
+  --font-display: var(--font-fira-mono);
+
+  /* Typography */
+  --font-fira-mono: 'Fira Mono', monospace;
+
+  /* Custom */
+  --color-tooltip-bg: var(--color-ivory-light);
+  --color-tooltip-text: var(--color-slate-medium);
+  --color-code-bg: var(--color-ivory-dark);
+  --color-code-text: var(--color-slate-light);
+  --color-hr: var(--color-slate-light);
+  --color-prose-bullets: var(--color-slate-light);
+
+  /* Colorscheme */
+  --color-gruvbox-bg: #282828;
+  --color-gruvbox-bg0-hard: #1d2021;
+  --color-gruvbox-bg0: #282828;
+  --color-gruvbox-bg0-soft: #32302f;
+  --color-gruvbox-bg1: #3c3836;
+  --color-gruvbox-bg2: #504945;
+  --color-gruvbox-bg3: #665c54;
+  --color-gruvbox-bg4: #7c6f64;
+
+  --color-gruvbox-fg: #ebdbb2;
+  --color-gruvbox-fg0: #fbf1c7;
+  --color-gruvbox-fg1: #ebdbb2;
+  --color-gruvbox-fg2: #d5c4a1;
+  --color-gruvbox-fg3: #bdae93;
+  --color-gruvbox-fg4: #a89984;
+
+  --color-gruvbox-gray-dark: #928374;
+  --color-gruvbox-gray-light: #a89984;
+
+  --color-gruvbox-red: #cc241d;
+  --color-gruvbox-red-bright: #fb4934;
+  --color-gruvbox-green: #98971a;
+  --color-gruvbox-green-bright: #b8bb26;
+  --color-gruvbox-yellow: #d79921;
+  --color-gruvbox-yellow-bright: #fabd2f;
+  --color-gruvbox-blue: #458588;
+  --color-gruvbox-blue-bright: #83a598;
+  --color-gruvbox-purple: #b16286;
+  --color-gruvbox-purple-bright: #d3869b;
+  --color-gruvbox-aqua: #689d6a;
+  --color-gruvbox-aqua-bright: #8ec07c;
+  --color-gruvbox-orange: #d65d0e;
+  --color-gruvbox-orange-bright: #fe8019;
 }
 
-header {
-  border-bottom: 1px solid #222;
-  margin-bottom: 1rem;
+@layer typography {
+  .prose {
+    --tw-prose-body: var(--color-gruvbox-fg);
+    --tw-prose-headings: var(--color-gruvbox-fg);
+    --tw-prose-lead: var(--color-gruvbox-fg);
+    --tw-prose-links: var(--color-gruvbox-fg);
+    --tw-prose-bold: var(--color-gruvbox-fg);
+    --tw-prose-counters: var(--color-gruvbox-fg);
+    --tw-prose-bullets: var(--color-gruvbox-fg);
+    --tw-prose-hr: var(--color-gruvbox-fg);
+    --tw-prose-quotes: var(--color-gruvbox-fg);
+    --tw-prose-quote-borders: var(--color-gruvbox-fg);
+    --tw-prose-captions: var(--color-gruvbox-fg);
+    --tw-prose-code: var(--color-gruvbox-fg);
+    --tw-prose-pre-code: var(--color-gruvbox-fg);
+    --tw-prose-pre-bg: var(--color-gruvbox-bg);
+    --tw-prose-th-borders: var(--color-gruvbox-fg);
+    --tw-prose-td-borders: var(--color-gruvbox-fg);
+  }
+
+  .prose pre {
+    line-height: 1.25;
+  }
+
+  /* Remove backticks around `code` elements. */
+  .prose code::after {
+    content: none;
+  }
+
+  .prose code::before {
+    content: none;
+  }
+
+  .prose code {
+    background-color: var(--color-code-bg);
+    font-weight: 400;
+  }
+
+  .prose ol {
+    margin: 0;
+  }
+
+  .prose ul {
+    margin: 0;
+  }
+
+  .prose li {
+    margin: 0;
+  }
+
+  .prose hr {
+    color: var(--color-code-bg);
+  }
 }
 
-footer {
-  border-top: 1px solid #222;
-  margin-top: 1rem;
+/*
+ * Custom utility for hiding footnotes section.
+ */
+@utility footnotes-hidden {
+  .footnotes {
+    display: none;
+  }
 }
 
-a {
-  color: #00e;
-  text-decoration: none;
+@layer components {
+  /*
+   * Styling for Hugo generated table of contents.
+   *
+   * See: https://gohugo.io/methods/page/tableofcontents/
+   */
+  #TableOfContents a {
+    @apply opacity-50 transition-opacity duration-200 hover:opacity-100;
+  }
+
+  #TableOfContents a.active {
+    @apply opacity-100;
+  }
+
+  #TableOfContents ul {
+    @apply space-y-2;
+  }
+
+  #TableOfContents ul ul {
+    @apply mt-2;
+  }
+
+  /*
+   * Styling for footnote tooltips.
+   */
+  .footnote-tooltip {
+    @apply invisible absolute mt-4 -ml-40 w-80 p-2 text-sm shadow;
+    background-color: var(--color-tooltip-bg);
+    color: var(--color-tooltip-text);
+  }
+
+  .footnote-tooltip p {
+    @apply m-0 p-5;
+  }
+
+  .has-footnote-tooltip:hover .footnote-tooltip {
+    @apply visible z-50;
+  }
 }
