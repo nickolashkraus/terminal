@@ -58,7 +58,7 @@
  */
 
 // Export the initialization function.
-export const initTableOfContents = () => {
+export const initTableOfContentsScrollspy = () => {
   // The table of contents rendered by Hugo uses the "#TableOfContents" ID.
   // An anchor element (<a>) is used for each heading.
   const tocLinks = document.querySelectorAll('#TableOfContents a')
@@ -172,12 +172,12 @@ const highlightActiveTocItem = (tocLinks, headings) => {
   // Check if the page is scrollable.
   const isPageScrollable = document.body.scrollHeight > window.innerHeight
 
-  // Use the last heading if the page is scrollable and scrolled to the bottom.
-  if (isPageScrollable && window.innerHeight + window.scrollY >= document.body.offsetHeight - 1) {
-    currentHeadingId = headings[headings.length - 1].id
-  } else {
-    // Use the first heading if page is not scrollable.
+  // Use the first heading if page is not scrollable, otherwise use the last
+  // heading if the page is scrollable and scrolled to the bottom.
+  if (!isPageScrollable) {
     currentHeadingId = headings[0].id
+  } else if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 1) {
+    currentHeadingId = headings[headings.length - 1].id
   }
 
   // Remove active class from all links.

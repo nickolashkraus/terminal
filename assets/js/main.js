@@ -1,12 +1,12 @@
 import { initFootnoteTooltips } from './modules/footnote-tooltips.js'
-import { initTableOfContents } from './modules/table-of-contents.js'
+import { initTableOfContentsScrollspy } from './modules/table-of-contents-scrollspy.js'
 
 /**
  * Main JavaScript initialization.
  */
 const initMain = () => {
   initFootnoteTooltips()
-  initTableOfContents()
+  initTableOfContentsScrollspy()
 }
 
 // Initialize when DOM is fully loaded.
