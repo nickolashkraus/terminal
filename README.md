@@ -63,8 +63,8 @@ configured in the site's `hugo.toml`:
 ### Colors
 
 This theme uses [Base16](https://github.com/chriskempson/base16), a framework
-for defining color palettes. To override the default color scheme, create a
-`colors.css` file in `assets/css`:
+for defining color palettes. To override the default color scheme, create
+a `colors.css` file in `assets/css`:
 
 ```css
 @theme {
