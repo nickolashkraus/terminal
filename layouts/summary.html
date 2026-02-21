@@ -1,0 +1,10 @@
+<div class="markdownify">
+  <h2>
+    <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+  </h2>
+  {{ if .Description }}
+    <div class="markdown prose footnotes-hidden w-full max-w-none">
+      {{ .Description | markdownify }}
+    </div>
+  {{ end }}
+</div>
