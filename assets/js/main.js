@@ -18,3 +18,5 @@ if (document.readyState === 'loading') {
   // DOM already loaded, run immediately.
   initMain()
 }
+
+console.log("Nope, there's only trash here.")
