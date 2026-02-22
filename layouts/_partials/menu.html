@@ -1,18 +1,18 @@
 {{- /*
-Renders a menu for the given menu ID.
+  Renders a menu for the given menu ID.
 
-@context {page} page The current page.
-@context {string} menuID The menu ID.
+  @context {page} page The current page.
+  @context {string} menuID The menu ID.
 
-@example: {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+  @example: {{ partial "menu.html" (dict "menuID" "main" "page" .)
+}}
 */}}
-
 {{- $page := .page }}
 {{- $menuID := .menuID }}
 
 {{- with index site.Menus $menuID }}
   <nav>
-    <ul>
+    <ul class="flex list-none flex-col space-x-6 space-y-0 sm:flex-row">
       {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
     </ul>
   </nav>
@@ -23,8 +23,8 @@ Renders a menu for the given menu ID.
   {{- range .menuEntries }}
     {{- $attrs := dict "href" .URL }}
     {{- if $page.IsMenuCurrent .Menu . }}
-      {{- $attrs = merge $attrs (dict "class" "active" "aria-current" "page") }}
-    {{- else if $page.HasMenuCurrent .Menu .}}
+      {{- $attrs = merge $attrs (dict "class" "text-gruvbox-red-bright" "aria-current" "page") }}
+    {{- else if $page.HasMenuCurrent .Menu . }}
       {{- $attrs = merge $attrs (dict "class" "ancestor" "aria-current" "true") }}
     {{- end }}
     {{- $name := .Name }}
@@ -33,14 +33,21 @@ Renders a menu for the given menu ID.
         {{- $name = . }}
       {{- end }}
     {{- end }}
+    {{- if isset $attrs "class" }}
+      {{- $attrs = merge $attrs (dict "class" (printf "%s whitespace-nowrap" $attrs.class)) }}
+    {{- else }}
+      {{- $attrs = merge $attrs (dict "class" "whitespace-nowrap") }}
+    {{- end }}
     <li>
-      <a
+      <span class="text-gruvbox-bg2 pr-px">./</span
+      ><a
         {{- range $k, $v := $attrs }}
           {{- with $v }}
             {{- printf " %s=%q" $k $v | safeHTMLAttr }}
           {{- end }}
         {{- end -}}
-      >{{ $name }}</a>
+        ><span class="opacity-75 hover:opacity-100">{{ $name }}</span></a
+      >
       {{- with .Children }}
         <ul>
           {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
