@@ -24,12 +24,12 @@
   --font-fira-mono: 'Fira Mono', monospace;
 
   /* Custom */
-  --color-tooltip-bg: var(--color-ivory-light);
-  --color-tooltip-text: var(--color-slate-medium);
-  --color-code-bg: var(--color-ivory-dark);
-  --color-code-text: var(--color-slate-light);
-  --color-hr: var(--color-slate-light);
-  --color-prose-bullets: var(--color-slate-light);
+  --color-tooltip-bg: var(--color-gruvbox-bg);
+  --color-tooltip-text: var(--color-gruvbox-fg);
+  --color-code-bg: var(--color-gruvbox-bg0-hard);
+  --color-code-text: var(--color-gruvbox-red);
+  --color-hr: var(--color-gruvbox-fg);
+  --color-prose-bullets: var(--color-gruvbox-fg);
 
   /* Colorscheme */
   /* TODO: Override colorscheme with colors.css */
