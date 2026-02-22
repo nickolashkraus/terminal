@@ -104,40 +104,42 @@
     --tw-prose-pre-bg: var(--color-gruvbox-bg);
     --tw-prose-th-borders: var(--color-gruvbox-fg);
     --tw-prose-td-borders: var(--color-gruvbox-fg);
-  }
 
-  .prose pre {
-    line-height: 1.25;
-  }
+    pre {
+      border: 1px solid var(--color-gruvbox-bg4);
+      border-radius: 0;
+      line-height: 1.25;
+    }
 
-  /* Remove backticks around `code` elements. */
-  .prose code::after {
-    content: none;
-  }
+    /* Remove backticks around `code` elements. */
+    code::after {
+      content: none;
+    }
 
-  .prose code::before {
-    content: none;
-  }
+    code::before {
+      content: none;
+    }
 
-  .prose code {
-    background-color: var(--color-code-bg);
-    font-weight: 400;
-  }
+    code {
+      background-color: var(--color-gruvbox-bg0-hard);
+      font-weight: 400;
+    }
 
-  .prose ol {
-    margin: 0;
-  }
+    ol {
+      margin: 0;
+    }
 
-  .prose ul {
-    margin: 0;
-  }
+    ul {
+      margin: 0;
+    }
 
-  .prose li {
-    margin: 0;
-  }
+    li {
+      margin: 0;
+    }
 
-  .prose hr {
-    color: var(--color-code-bg);
+    hr {
+      color: var(--color-code-bg);
+    }
   }
 }
 
@@ -147,6 +149,10 @@
 @utility footnotes-hidden {
   .footnotes {
     display: none;
+  }
+
+  p:last-of-type {
+    margin-bottom: 0;
   }
 }
 
@@ -172,11 +178,17 @@
     @apply mt-2;
   }
 
+  /* Add margin between top-level <ul> elements. */
+  #TableOfContents > ul:not(:first-child) {
+    @apply mt-2;
+  }
+
   /*
    * Styling for footnote tooltips.
+   * TODO: Add border.
    */
   .footnote-tooltip {
-    @apply invisible absolute mt-4 -ml-40 w-80 p-2 text-sm shadow;
+    @apply invisible absolute -ml-40 mt-4 w-80 p-2 text-sm shadow;
     background-color: var(--color-tooltip-bg);
     color: var(--color-tooltip-text);
   }
@@ -189,3 +201,9 @@
     @apply visible z-50;
   }
 }
+
+/* Override colors */
+@import 'colors.css';
+
+/* Custom Markdown styling */
+@import 'markdown.css';

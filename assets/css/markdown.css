@@ -1,0 +1,72 @@
+/* Custom Markdown styling */
+@utility markdownify {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply mt-6 text-base;
+  }
+
+  h1:first-child {
+    @apply m-0;
+  }
+
+  h2:first-child {
+    @apply m-0;
+  }
+
+  h3:first-child {
+    @apply m-0;
+  }
+
+  h1:before {
+    content: '# ';
+  }
+
+  h2:before {
+    content: '## ';
+  }
+
+  h3:before {
+    content: '### ';
+  }
+
+  h4:before {
+    content: '#### ';
+  }
+
+  h5:before {
+    content: '##### ';
+  }
+
+  h6:before {
+    content: '###### ';
+  }
+
+  h1:before,
+  h2:before,
+  h3:before,
+  h4:before,
+  h5:before,
+  h6:before {
+    color: var(--color-base02);
+  }
+
+  a {
+    @apply no-underline;
+  }
+
+  hr {
+    @apply my-4 border-0;
+  }
+
+  hr:before {
+    content: '---';
+  }
+
+  hr:before {
+    color: var(--color-base02);
+  }
+}
