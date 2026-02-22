@@ -8,7 +8,9 @@ A minimalist Hugo theme using Tailwind CSS and vanilla JavaScript.
 - Footnote reference tooltips
 - Table of contents scrollspy
 - Table of contents toggle
-- Font Awesome icons
+- Google Analytics
+- Search Engine Optimization (SEO)
+- Social Links (with Font Awesome icons)
 
 ## Installation
 
@@ -42,22 +44,41 @@ The **About** section of the right-hand aside can be configured in the site's
   description = "A minimalist Hugo theme using Tailwind CSS and vanilla JavaScript."
 ```
 
-### Socials
+### Google Analytics
 
-Social links use [Font Awesome](https://fontawesome.com) icons and can be
-configured in the site's `hugo.toml`:
+To add support for Google Analytics, add the following to your configuration
+file:
+
+```toml
+[services]
+  [services.googleAnalytics]
+    id = 'G-MEASUREMENT_ID'
+```
+
+### Search Engine Optimization (SEO)
+
+This theme provides intelligent configuration of SEO meta tags that adhere to
+best practices with sensible fallbacks.
+
+For documentation on configuring SEO and social media appearance, see the
+[documentation](docs/search-engine-optimization.md).
+
+## Social Links (with Font Awesome icons)
+
+Social links (with [Font Awesome](https://fontawesome.com) icons) can be added
+via the configuration file.
 
 ```toml
 [params]
   [[params.socials]]
-  icon = 'fa-brands fa-github'
-  name = 'GitHub'
-  url = 'https://github.com/nickolashkraus/terminal'
+    icon = 'fa-brands fa-github'
+    name = 'GitHub'
+    url = 'https://github.com/nickolashkraus/terminal'
 
   [[params.socials]]
-  icon = 'fa-solid fa-envelope'
-  name = 'Email'
-  url = 'mailto:0x@nickolaskraus.io'
+    icon = 'fa-solid fa-envelope'
+    name = 'Email'
+    url = 'mailto:0x@nickolaskraus.io'
 ```
 
 ### Colors
