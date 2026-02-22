@@ -7,6 +7,27 @@ theme = 'terminal'
   [markup.highlight]
   # See: https://xyproto.github.io/splash/docs/
   style = 'gruvbox'
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+    taskList = false
+    typographer = false
+    [markup.goldmark.renderer]
+    unsafe = true
+
+[params]
+  [params.about]
+  title = "Terminal"
+  description = "A minimalist Hugo theme using Tailwind CSS and vanilla JavaScript."
+
+  [[params.socials]]
+  icon = 'fa-brands fa-github'
+  name = 'GitHub'
+  url = 'https://github.com/nickolashkraus/terminal'
+
+  [[params.socials]]
+  icon = 'fa-solid fa-envelope'
+  name = 'Email'
+  url = 'mailto:0x@nickolaskraus.io'
 
 [[menus.main]]
 name = 'Home'
@@ -16,6 +37,11 @@ weight = 10
 [[menus.main]]
 name = 'Docs'
 pageRef = '/docs'
+weight = 20
+
+[[menus.aside]]
+name = 'README.md'
+pageRef = '/'
 weight = 20
 
 [build]
