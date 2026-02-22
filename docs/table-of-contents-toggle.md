@@ -31,8 +31,8 @@ Heading 1
 Heading 2  
 Heading 3
 
-By adding and removing specific TailwindCSS classes to the table of contents
-element, empty spacer element, and main contents element, the table of contents
+By adding and removing specific Tailwind CSS classes to the table of contents
+element, empty spacer element, and main content element, the table of contents
 can be added or removed.
 
 ## Prerequisites
@@ -41,7 +41,7 @@ To use this module, you'll need:
 
 1. Tailwind CSS
 2. Add the following classes to the table of contents element, empty spacer
-   element), and main contents element, the table of contents:
+   element, and main content element:
 
 ```html
 <div class="hidden lg:col-span-2 lg:block togglable-toc">

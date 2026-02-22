@@ -44,14 +44,14 @@ const toggleTOC = (event, tocElement, emptyElement, mainElement, state) => {
     tocElement.classList.add('lg:hidden')
     emptyElement.classList.remove('lg:block')
     emptyElement.classList.add('lg:hidden')
-    mainElement.className = 'col-span-12 togglable-main'
+    mainElement.classList.remove('lg:col-span-9')
   } else {
     // Show TOC.
     tocElement.classList.add('lg:block')
     tocElement.classList.remove('lg:hidden')
     emptyElement.classList.add('lg:block')
     emptyElement.classList.remove('lg:hidden')
-    mainElement.className = 'col-span-12 lg:col-span-9 togglable-main'
+    mainElement.classList.add('lg:col-span-9')
   }
 
   // Update the state
@@ -67,8 +67,8 @@ export const initTableOfContentsToggle = () => {
   if (!tocExists) return
 
   // Get the required elements.
-  const tocColumn = document.querySelector('div.togglable-toc')
-  const emptyColumn = document.querySelector('div.togglable-empty')
+  const tocColumn = document.querySelector('.togglable-toc')
+  const emptyColumn = document.querySelector('.togglable-empty')
   const mainColumn = document.querySelector('.togglable-main')
 
   // Exit early if required elements are not found.
