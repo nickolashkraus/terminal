@@ -64,7 +64,7 @@ This configuration enables key optimizations when using Tailwind CSS with Hugo:
 
 ### Step 4: Create a partial template to process the CSS
 
-`layouts/partials/head/css.html`
+`layouts/_partials/head/css.html`
 
 ```html
 <!--
