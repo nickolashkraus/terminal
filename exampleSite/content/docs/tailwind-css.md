@@ -1,7 +1,7 @@
 +++
 title = 'Tailwind CSS'
 draft = false
-description  = '''
+description = '''
 Tailwind CSS is a utility-first CSS framework that allows you to build custom
 designs without leaving your HTML. Rather than providing pre-designed
 components like many traditional frameworks, Tailwind gives you low-level
