@@ -15,7 +15,7 @@
  *
  * How does it work?
  * -----------------
- * Hugo (via Goldmark) renders footnotes references as <sup> elements with the
+ * Hugo (via Goldmark) renders footnote references as <sup> elements with the
  * following form:
  *
  *   HTML
@@ -109,17 +109,15 @@ const getFootnoteIdFromRef = (ref) => {
 
 /**
  * Extract the footnote content from the footnote element.
- * The back reference (↩︎) is removed.
+ * All back references (↩︎) are removed.
  * @param {HTMLElement} footnote - The footnote element.
  * @returns {Element} - A clone of the footnote element.
  */
 const getFootnoteContent = (footnote) => {
   const footnoteContent = footnote.cloneNode(true)
-  const backref = footnoteContent.querySelector('.footnote-backref')
+  const backrefs = footnoteContent.querySelectorAll('.footnote-backref')
 
-  if (backref) {
-    backref.remove()
-  }
+  backrefs.forEach((backref) => backref.remove())
 
   return footnoteContent
 }
@@ -138,10 +136,13 @@ const appendTooltipToRef = (ref, content) => {
   const tooltipContent = document.createElement('p')
 
   // Extract the footnote number from the footnote reference and create a new
-  // `<sup>` element.
+  // `<sup>` element with a link.
   const footnoteNumber = ref.textContent.trim()
   const footnoteNumberSup = document.createElement('sup')
-  footnoteNumberSup.textContent = footnoteNumber
+  const footnoteLink = document.createElement('a')
+  footnoteLink.href = ref.getAttribute('href')
+  footnoteLink.textContent = footnoteNumber
+  footnoteNumberSup.appendChild(footnoteLink)
 
   // Add footnote reference number and footnote content to the tooltip.
   tooltipContent.innerHTML =
@@ -150,7 +151,7 @@ const appendTooltipToRef = (ref, content) => {
   // Create `has-footnote-tooltip` wrapper for the footnote reference and
   // tooltip.
   const wrapper = document.createElement('span')
-  wrapper.className = 'has-footnote-tooltip'
+  wrapper.classList.add('has-footnote-tooltip')
 
   // Clone the original footnote reference element, so we retain its original
   // attributes.
@@ -158,13 +159,76 @@ const appendTooltipToRef = (ref, content) => {
 
   // Create the tooltip element.
   const tooltip = document.createElement('span')
-  tooltip.className = 'footnote-tooltip'
+  tooltip.classList.add('footnote-tooltip')
   tooltip.innerHTML = tooltipContent.innerHTML
 
   wrapper.appendChild(refClone)
   wrapper.appendChild(tooltip)
 
+  // If a click event occurs outside of the tooltip, hide the tooltip.
+  document.addEventListener('click', (e) => {
+    if (!wrapper.contains(e.target)) {
+      tooltip.classList.remove('visible')
+    }
+  })
+
   // Replace the original footnote reference (`<sup>`) with the wrapped
   // version.
   sup.replaceWith(wrapper)
+
+  // Set the tooltip's position.
+  setTooltipPosition(tooltip)
+}
+
+/**
+ * Set the position of the tooltip element.
+ *
+ * The tooltip is centered under the `has-footnote-tooltip` wrapper and within
+ * the bounds of the parent element.
+ *
+ * @param {HTMLElement} tooltip - The tooltip element.
+ */
+const setTooltipPosition = (tooltip) => {
+  const wrapper = tooltip.closest('.has-footnote-tooltip')
+  if (!wrapper) return
+
+  // Get the parent element of the tooltip wrapper.
+  const parent = wrapper.parentElement
+  if (!parent) return
+
+  const tooltipRect = tooltip.getBoundingClientRect()
+  const wrapperRect = wrapper.getBoundingClientRect()
+  const parentRect = parent.getBoundingClientRect()
+
+  // Reset any previous positioning.
+  tooltip.style.transform = ''
+
+  // First, determine the position of the tooltip when centered under the
+  // wrapper.
+  //
+  // The center of the wrapper is calculated using the following:
+  //
+  //   wrapperCenter = wrapperLeft + (wrapperWidth / 2)
+  //
+  // The left position of the tooltip is then:
+  //
+  //   tooltipLeft = wrapperCenter - (tooltipWidth / 2)
+  const wrapperCenter = wrapperRect.left + wrapperRect.width / 2
+  let tooltipLeft = wrapperCenter - tooltipRect.width / 2
+
+  // Next, adjust the left position of the tooltip if it extends beyond the
+  // bounds of the parent element.
+  if (tooltipLeft < parentRect.left) {
+    // If the tooltip extends beyond left edge of parent element, align it with
+    // the left position of the parent with padding.
+    tooltipLeft = parentRect.left + 20
+  } else if (tooltipLeft + tooltipRect.width > parentRect.right) {
+    // If the tooltip extends beyond right edge of parent element, align it
+    // with the right position of the parent with padding.
+    tooltipLeft = parentRect.right - tooltipRect.width - 20
+  }
+
+  // Apply the position relative to the viewport.
+  const tooltipOffsetLeft = Math.round(tooltipLeft) - wrapperRect.left
+  tooltip.style.transform = `translateX(${tooltipOffsetLeft}px)`
 }
