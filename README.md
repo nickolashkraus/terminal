@@ -71,14 +71,14 @@ via the configuration file.
 ```toml
 [params]
   [[params.socials]]
+    icon = 'fa-sharp fa-regular fa-envelope'
+    name = 'Email'
+    url = 'mailto:0x@nickolaskraus.io'
+
+  [[params.socials]]
     icon = 'fa-brands fa-github'
     name = 'GitHub'
     url = 'https://github.com/nickolashkraus/terminal'
-
-  [[params.socials]]
-    icon = 'fa-solid fa-envelope'
-    name = 'Email'
-    url = 'mailto:0x@nickolaskraus.io'
 ```
 
 ### Colors
