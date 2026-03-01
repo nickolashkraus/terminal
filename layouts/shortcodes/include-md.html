@@ -2,7 +2,8 @@
 {{- /*
   Read the contents of a Markdown file and render as HTML.
 
-  Removes the first line of the Markdown file if it starts with '#'.
+    - Removes the first line of the Markdown file if it starts with '#'.
+    - Strips .md extensions from Markdown links.
 
   @param {string} path Path to the file.
 
@@ -23,4 +24,5 @@
 {{ if hasPrefix $firstLine "#" }}
   {{ $content = delimit (after 1 $lines) "\n" }}
 {{ end }}
+{{ $content = replaceRE `\]\(([^)]*)\.md\)` `]($1)` $content }}
 {{ $content | safeHTML }}
