@@ -111,34 +111,29 @@
       line-height: 1.25;
     }
 
-    /* Remove backticks around `code` elements. */
-    code::after {
-      content: none;
-    }
-
-    code::before {
-      content: none;
-    }
-
     code {
-      background-color: var(--color-gruvbox-bg0-hard);
+      background-color: var(--color-code-bg);
       font-weight: 400;
+
+      /* Remove backticks around <code> elements. */
+      &::before,
+      &::after {
+        content: none;
+      }
     }
 
-    ol {
-      margin: 0;
-    }
-
-    ul {
-      margin: 0;
-    }
-
+    ol,
+    ul,
     li {
       margin: 0;
     }
 
-    hr {
-      color: var(--color-code-bg);
+    blockquote p {
+      /* Remove double-quotes around <blockquote> elements. */
+      &::before,
+      &::after {
+        content: none;
+      }
     }
   }
 }
