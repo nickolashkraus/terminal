@@ -330,8 +330,8 @@ A comprehensive, all-in-one tool for meta tag analysis. It shows previews for
 multiple platforms and tests Google search appearance.
 
 **[Social Share Preview][Social Share Preview]**  
-All-in-one social media preview tool, which tests Facebook, Twitter, LinkedIn
-simultaneously and shows Google search preview.
+All-in-one social media preview tool, which tests Facebook, Twitter, and
+LinkedIn simultaneously and shows Google search preview.
 
 **[Google Search Console][Google Search Console]**  
 Google Search Console tools and reports help you measure your site's search
@@ -354,7 +354,7 @@ Checks whether your structured data is correctly formatted and follows
 [Social Share Preview]: https://socialsharepreview.com
 [Schema Markup Validator]: https://validator.schema.org
 
-[^1]: Twitter titles have a 70 character max.
-[^2]: Twitter descriptions have a 200 character max.
+[^1]: Twitter titles have a 70-character max.
+[^2]: Twitter descriptions have a 200-character max.
 [^3]: For Twitter, images must be less than 5MB in size. JPG, PNG, WEBP and GIF
 formats are supported. SVG is not supported.
