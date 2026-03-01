@@ -187,6 +187,35 @@
   .has-footnote-tooltip:hover .footnote-tooltip {
     @apply visible z-50;
   }
+
+  /*
+   * Styling for scrollbars.
+   *
+   * TODO: Fix scrollbar colors.
+   */
+  html {
+    /* Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-gruvbox-bg4) var(--color-gruvbox-bg4);
+  }
+
+  /* Webkit browsers */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-gruvbox-bg4);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-gruvbox-bg4);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-gruvbox-bg4);
+  }
 }
 
 /*
