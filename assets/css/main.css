@@ -167,12 +167,14 @@
 
   /*
    * Styling for footnote tooltips.
-   * TODO: Add border.
    */
   .footnote-tooltip {
     @apply invisible absolute mt-4 w-60 p-2 text-sm font-normal shadow;
     background-color: var(--color-tooltip-bg);
     color: var(--color-tooltip-text);
+    border: 1px solid var(--color-gruvbox-bg4);
+    border-radius: 0;
+    line-height: 1.25;
   }
 
   .footnote-tooltip p {
