@@ -28,18 +28,18 @@ The title tag (`<title>`) is the most important meta tag for SEO and is used
 for the clickable link in search results. The title should be unique, less than
 60 characters[^1], and include primary keywords related to the content.
 
-Typically, the home page uses the site title (e.g., Paperwhite) and other pages
+Typically, the home page uses the site title (e.g., Terminal) and other pages
 such as articles use the page title followed by the site title (e.g., Search
-Engine Optimization (SEO) | Paperwhite).
+Engine Optimization (SEO) | Terminal).
 
 **Example**
 
 ```html
-<title>Paperwhite</title>
+<title>Terminal</title>
 ```
 
 ```html
-<title>Search Engine Optimization (SEO) | Paperwhite</title>
+<title>Search Engine Optimization (SEO) | Terminal</title>
 ```
 
 The title tag is set using the following:
@@ -55,7 +55,7 @@ page:
 `hugo.toml`
 
 ```toml
-title = 'Paperwhite'
+title = 'Terminal'
 ```
 
 `search-engine-optimization.md`
@@ -342,7 +342,7 @@ results.
 Checks whether your structured data is correctly formatted and follows
 [Schema.org](https://schema.org) standards.
 
-[meta.html]: https://github.com/nickolashkraus/paperwhite/blob/master/layouts/_partials/head/meta.html
+[meta.html]: https://github.com/nickolashkraus/terminal/blob/master/layouts/_partials/head/meta.html
 [Open Graph]: https://ogp.me
 [Optimize Tweets with X Cards]: https://developer.x.com/en/docs/x-for-websites/cards/overview/abouts-cards
 [JSON-LD]: https://json-ld.org
