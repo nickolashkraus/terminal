@@ -2,7 +2,7 @@
   <div class="markdownify">
     <div class="m-auto max-w-2xl">
       <div class="grid grid-cols-1 gap-8">
-        <h2>{{ .Title }}</h2>
+        <h1>{{ .Title }}</h1>
         {{ .Content }}
         {{ range .Pages }}
           <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
