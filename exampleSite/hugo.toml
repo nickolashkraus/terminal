@@ -20,6 +20,7 @@ theme = 'terminal'
 #     id = 'G-MEASUREMENT_ID'
 
 [params]
+
   [params.about]
   title = "Terminal"
   description = "A minimalist Hugo theme using Tailwind CSS and vanilla JavaScript."
@@ -31,14 +32,14 @@ theme = 'terminal'
     twitter_creator = '@nickolashkraus'
 
   [[params.socials]]
-  icon = 'fa-brands fa-github'
-  name = 'GitHub'
-  url = 'https://github.com/nickolashkraus/terminal'
+    icon = 'fa-sharp fa-regular fa-envelope'
+    name = 'Email'
+    url = 'mailto:0x@nickolaskraus.io'
 
   [[params.socials]]
-  icon = 'fa-solid fa-envelope'
-  name = 'Email'
-  url = 'mailto:0x@nickolaskraus.io'
+    icon = 'fa-brands fa-github'
+    name = 'GitHub'
+    url = 'https://github.com/nickolashkraus/paperwhite'
 
 [[menus.main]]
 name = 'Home'
