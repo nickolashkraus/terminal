@@ -39,7 +39,7 @@ theme = 'terminal'
   [[params.socials]]
     icon = 'fa-brands fa-github'
     name = 'GitHub'
-    url = 'https://github.com/nickolashkraus/paperwhite'
+    url = 'https://github.com/nickolashkraus/terminal'
 
 [[menus.main]]
 name = 'Home'
