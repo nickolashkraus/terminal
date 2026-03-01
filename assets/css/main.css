@@ -143,19 +143,6 @@
   }
 }
 
-/*
- * Custom utility for hiding footnotes section.
- */
-@utility footnotes-hidden {
-  .footnotes {
-    display: none;
-  }
-
-  p:last-of-type {
-    margin-bottom: 0;
-  }
-}
-
 @layer components {
   /*
    * Styling for Hugo generated table of contents.
@@ -175,7 +162,7 @@
   }
 
   #TableOfContents ul ul {
-    @apply mt-2;
+    @apply mt-2 pl-3;
   }
 
   /* Add margin between top-level <ul> elements. */
@@ -188,7 +175,7 @@
    * TODO: Add border.
    */
   .footnote-tooltip {
-    @apply invisible absolute -ml-40 mt-4 w-80 p-2 text-sm shadow;
+    @apply invisible absolute mt-4 w-60 p-2 text-sm font-normal shadow;
     background-color: var(--color-tooltip-bg);
     color: var(--color-tooltip-text);
   }
@@ -199,6 +186,19 @@
 
   .has-footnote-tooltip:hover .footnote-tooltip {
     @apply visible z-50;
+  }
+}
+
+/*
+ * Custom utility for hiding footnotes section.
+ */
+@utility footnotes-hidden {
+  .footnotes {
+    display: none;
+  }
+
+  p:last-of-type {
+    margin-bottom: 0;
   }
 }
 
