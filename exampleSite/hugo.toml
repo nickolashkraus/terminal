@@ -24,6 +24,12 @@ theme = 'terminal'
   title = "Terminal"
   description = "A minimalist Hugo theme using Tailwind CSS and vanilla JavaScript."
 
+  [params.seo]
+    image = 'logo.png'
+    twitter_card = 'summary'
+    twitter_site = '@nickolashkraus'
+    twitter_creator = '@nickolashkraus'
+
   [[params.socials]]
   icon = 'fa-brands fa-github'
   name = 'GitHub'
