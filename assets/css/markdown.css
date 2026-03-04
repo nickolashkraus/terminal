@@ -60,7 +60,9 @@
   }
 
   hr {
-    @apply my-4 border-0;
+    @apply my-4;
+    border: none;
+    border-top: 1px solid var(--color-gruvbox-bg4);
   }
 
   hr:before {
