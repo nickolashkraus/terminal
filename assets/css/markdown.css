@@ -56,7 +56,7 @@
   }
 
   a {
-    @apply no-underline;
+    @apply no-underline opacity-50 transition-opacity duration-200 hover:opacity-100;
   }
 
   hr {
