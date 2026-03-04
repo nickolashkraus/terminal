@@ -6,7 +6,7 @@
   h4,
   h5,
   h6 {
-    @apply mt-6 text-base;
+    @apply mt-6 mb-0 text-base;
   }
 
   h1:first-child {
@@ -52,6 +52,10 @@
   h5:before,
   h6:before {
     color: var(--color-base02);
+  }
+
+  p {
+    @apply mt-0 mb-6;
   }
 
   a {
