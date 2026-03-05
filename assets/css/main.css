@@ -133,9 +133,13 @@
       margin: 0;
     }
 
+    blockquote {
+      font-style: normal;
+    }
+
     blockquote p {
       /* Remove double-quotes around <blockquote> elements. */
-      &::before,
+      /* NOTE: '>' added by assets/css/markdown.css. */
       &::after {
         content: none;
       }
