@@ -173,33 +173,33 @@
   #TableOfContents > ul::before {
     content: '';
     position: absolute;
-    left: 0.4rem;
     top: -1rem;
-    height: 1.6rem;
+    left: 0.4rem;
     width: 1px;
+    height: 1.6rem;
     background-color: currentColor;
     opacity: 0.25;
   }
 
   #TableOfContents ul {
-    @apply space-y-2;
     list-style: none;
     padding-left: 1.25rem;
+    @apply space-y-2;
   }
 
   #TableOfContents ul ul {
-    @apply mt-2;
     position: relative;
+    @apply mt-2;
   }
 
   /* Vertical connector from parent item down to first child's branch. */
   #TableOfContents ul ul::before {
     content: '';
     position: absolute;
-    left: 0.4rem;
     top: -0.5rem;
-    height: 1.1rem;
+    left: 0.4rem;
     width: 1px;
+    height: 1.1rem;
     background-color: currentColor;
     opacity: 0.25;
   }
@@ -212,9 +212,9 @@
   #TableOfContents li::before {
     content: '';
     position: absolute;
-    left: -0.85rem;
     top: 0;
     bottom: -0.5rem;
+    left: -0.85rem;
     width: 1px;
     background-color: currentColor;
     opacity: 0.25;
@@ -240,8 +240,8 @@
   #TableOfContents li::after {
     content: '';
     position: absolute;
-    left: -0.85rem;
     top: 0.6rem;
+    left: -0.85rem;
     width: 0.65rem;
     height: 1px;
     background-color: currentColor;
