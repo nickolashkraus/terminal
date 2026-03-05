@@ -149,6 +149,22 @@
 
 @layer components {
   /*
+   * Styling for links.
+   */
+  a {
+    @apply no-underline opacity-50 transition-opacity duration-200 hover:opacity-100;
+  }
+
+  /*
+   * Styling for horizontal rules.
+   */
+  hr {
+    @apply my-6;
+    border: none;
+    border-top: 1px solid var(--color-gruvbox-bg4);
+  }
+
+  /*
    * Styling for Hugo generated table of contents.
    *
    * See: https://gohugo.io/methods/page/tableofcontents/
