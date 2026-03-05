@@ -60,7 +60,7 @@
   }
 
   hr {
-    @apply my-4;
+    @apply my-6;
     border: none;
     border-top: 1px solid var(--color-gruvbox-bg4);
   }
@@ -111,8 +111,8 @@
 
   pre {
     overflow-x: auto;
-    margin: 1rem 0;
-    padding: 1rem;
+    margin: 1.5rem 0;
+    padding: 1.5rem;
   }
 
   /* iOS-specific fixes */
