@@ -112,7 +112,8 @@
     }
 
     code {
-      background-color: var(--color-code-bg);
+      color: var(--color-gruvbox-fg0);
+      background-color: var(--color-gruvbox-bg1);
       font-weight: 400;
 
       /* Remove backticks around <code> elements. */
