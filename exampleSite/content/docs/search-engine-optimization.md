@@ -7,7 +7,7 @@ increase its visibility and ranking through search engine results pages
 (SERPs). A strategy for improving the SEO for a website is through the
 intelligent use of meta tags.
 '''
-weight = 5
+weight = 6
 +++
 
 {{% include-md "docs/search-engine-optimization.md" %}}
