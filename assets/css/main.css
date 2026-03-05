@@ -123,6 +123,10 @@
       }
     }
 
+    pre code {
+      background-color: transparent;
+    }
+
     ol,
     ul,
     li {
