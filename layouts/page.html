@@ -1,18 +1,23 @@
 {{ define "main" }}
   <!-- Only show a table of contents if it exists. -->
-  {{ $tocLength := findRE "<li>" .TableOfContents | len }}
+  {{ $toc := .TableOfContents }}
+  {{ $tocLength := findRE "<li>" $toc | len }}
   {{ $hasTOC := gt $tocLength 0 }}
+
+  <!-- TODO: Ensure correct width (72rem = 88 character line length). -->
+
+  <!-- TODO: Fix TOC horizontal overflow. -->
 
   {{ if $hasTOC }}
   <div class="m-auto max-w-2xl lg:max-w-4xl">
     <div class="grid grid-cols-12 gap-4">
       <div class="hidden lg:col-span-2 lg:block togglable-toc">
-        <aside class="markdownify sticky top-0 h-[80vh] w-48 overflow-x-hidden overflow-y-auto lg:max-h-screen">
-          <h2 class="pb-4 text-2xl">Contents</h2>
+        <aside class="sticky top-0 h-[80vh] w-48 overflow-x-hidden overflow-y-auto lg:max-h-screen">
+          <h2 class="pb-4 text-base">Contents</h2>
           <div class="mb-12 max-w-full break-words">
-            {{ .TableOfContents }}
+            {{ $toc }}
           </div>
-          <button class="border-1 p-2 opacity-50">← ctrl-n</button>
+          <button class="border p-2 opacity-50" aria-label="Toggle table of contents (Ctrl+N)">← ctrl-n</button>
         </aside>
       </div>
       <div class="hidden lg:col-span-1 lg:block togglable-empty"></div>
@@ -46,7 +51,7 @@
 {{ end }}
 
 {{ define "aside" }}
-  <hr class="mb-5"/>
+  <hr />
     {{ if .Description }}
     <div class="markdown prose footnotes-hidden w-full max-w-none pb-2">
       {{ .Description | markdownify }}

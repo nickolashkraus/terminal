@@ -3,6 +3,9 @@
   <head>
     {{ partial "head.html" . }}
   </head>
+
+  <!-- TODO: Ensure responsive layout on mobile (<45rem). -->
+
   <body
     class="bg-gruvbox-bg font-display text-gruvbox-fg selection:bg-gruvbox-fg selection:text-gruvbox-bg p-8"
   >
@@ -14,8 +17,8 @@
         <article class="col-span-3 mr-8">
           {{ block "main" . }}{{ end }}
         </article>
-        <aside class="markdownify col-span-1">
-          {{ partial "about.html"  . }}
+        <aside class="col-span-1">
+          {{ partial "about.html" . }}
           {{ partial "socials.html" . }}
           <hr />
           {{ partial "menu.html" (dict "menuID" "aside" "page" .) }}

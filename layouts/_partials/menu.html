@@ -25,7 +25,7 @@
     {{- if $page.IsMenuCurrent .Menu . }}
       {{- $attrs = merge $attrs (dict "class" "text-gruvbox-red-bright" "aria-current" "page") }}
     {{- else if $page.HasMenuCurrent .Menu . }}
-      {{- $attrs = merge $attrs (dict "class" "ancestor" "aria-current" "true") }}
+      {{- $attrs = merge $attrs (dict "class" "text-gruvbox-red-bright" "aria-current" "true") }}
     {{- end }}
     {{- $name := .Name }}
     {{- with .Identifier }}
@@ -34,9 +34,9 @@
       {{- end }}
     {{- end }}
     {{- if isset $attrs "class" }}
-      {{- $attrs = merge $attrs (dict "class" (printf "%s whitespace-nowrap" $attrs.class)) }}
+      {{- $attrs = merge $attrs (dict "class" (printf "%s whitespace-nowrap opacity-75 hover:opacity-100" $attrs.class)) }}
     {{- else }}
-      {{- $attrs = merge $attrs (dict "class" "whitespace-nowrap") }}
+      {{- $attrs = merge $attrs (dict "class" "whitespace-nowrap opacity-75 hover:opacity-100") }}
     {{- end }}
     <li>
       <span class="text-gruvbox-bg2 pr-px">./</span
@@ -46,9 +46,7 @@
             {{- printf " %s=%q" $k $v | safeHTMLAttr }}
           {{- end }}
         {{- end -}}
-        ><span class="opacity-75 transition-opacity duration-200 hover:opacity-100"
-          >{{ $name }}</span
-        ></a
+        >{{ $name }}</a
       >
       {{- with .Children }}
         <ul>
