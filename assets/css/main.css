@@ -290,7 +290,7 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: var(--color-gruvbox-bg1);
+    background: var(--color-gruvbox-bg);
   }
 
   ::-webkit-scrollbar-thumb {
@@ -299,7 +299,7 @@
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-gruvbox-bg1);
+    background: var(--color-gruvbox-bg2);
   }
 
   /* Improve font rendering across different browsers and operating systems. */
