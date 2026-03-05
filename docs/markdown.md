@@ -20,13 +20,6 @@ Markdown supports six levels of headings, corresponding to HTML's `<h1>` -
 ###### Heading 6
 ```
 
-# Heading 1
-## Heading 2
-### Heading 3
-#### Heading 4
-##### Heading 5
-###### Heading 6
-
 Alternative syntax for heading levels 1 and 2:
 
 ```markdown
