@@ -132,3 +132,18 @@
     font-size: 16px !important;
     line-height: 1.5rem !important;
   }
+
+  sup {
+    font-size: 0.85em;
+    position: relative;
+    top: -0.25rem;
+    vertical-align: baseline;
+  }
+
+  sub {
+    font-size: 0.85em;
+    position: relative;
+    top: 0.25rem;
+    vertical-align: baseline;
+  }
+}
