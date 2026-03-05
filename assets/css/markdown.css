@@ -6,7 +6,7 @@
   h4,
   h5,
   h6 {
-    @apply mt-6 mb-0 text-base;
+    @apply mb-0 mt-6 text-base;
   }
 
   h1:first-child,
@@ -52,7 +52,7 @@
   }
 
   p {
-    @apply mt-0 mb-6;
+    @apply mb-6 mt-0;
   }
 
   a {
@@ -64,7 +64,7 @@
     border: none;
     border-top: 1px solid var(--color-gruvbox-bg4);
   }
-  
+
   ol {
     margin: 0 0 1.5rem 0;
     padding-left: 1.75rem;
@@ -75,7 +75,10 @@
     padding-left: 1.75rem;
   }
 
-  ol ol, ol ul, ul ul, ul ol {
+  ol ol,
+  ol ul,
+  ul ul,
+  ul ol {
     margin: 0;
   }
 
@@ -87,7 +90,7 @@
   ol li::marker {
     color: var(--color-base02);
   }
-  
+
   blockquote {
     margin: 0 0 1.5rem 1.5rem;
     padding: 0;
@@ -101,20 +104,21 @@
   }
 
   blockquote p::before {
-    content: ">";
+    content: '>';
     margin-right: 0.25rem;
     color: var(--color-base02);
   }
-  
+
   pre {
     overflow-x: auto;
-    margin: 1.0rem 0;
-    padding: 1.0rem;
+    margin: 1rem 0;
+    padding: 1rem;
   }
 
   /* iOS-specific fixes */
   @supports (-webkit-touch-callout: none) {
-    code, pre {
+    code,
+    pre {
       font-variant-ligatures: none;
       letter-spacing: 0;
     }
@@ -126,13 +130,13 @@
   }
 
   /* Ensure consistent font rendering across different devices. */
-  pre, .highlight {
+  pre,
+  .highlight {
     -webkit-text-size-adjust: none;
     text-size-adjust: none;
-    font-size: 16px !important;
-    line-height: 1.5rem !important;
   }
 
+  sub,
   sup {
     font-size: 0.85em;
     position: relative;
@@ -141,8 +145,6 @@
   }
 
   sub {
-    font-size: 0.85em;
-    position: relative;
     top: 0.25rem;
   }
 
