@@ -46,7 +46,9 @@
             {{- printf " %s=%q" $k $v | safeHTMLAttr }}
           {{- end }}
         {{- end -}}
-        ><span class="opacity-75 hover:opacity-100">{{ $name }}</span></a
+        ><span class="opacity-75 transition-opacity duration-200 hover:opacity-100"
+          >{{ $name }}</span
+        ></a
       >
       {{- with .Children }}
         <ul>
