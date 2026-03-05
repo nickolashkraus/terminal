@@ -1,0 +1,176 @@
+/* Custom Markdown styling */
+@utility markdownify {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply mb-0 mt-6 text-base;
+  }
+
+  h1:first-child,
+  h2:first-child,
+  h3:first-child,
+  h4:first-child,
+  h5:first-child,
+  h6:first-child {
+    @apply m-0;
+  }
+
+  h1::before {
+    content: '# ';
+  }
+
+  h2::before {
+    content: '## ';
+  }
+
+  h3::before {
+    content: '### ';
+  }
+
+  h4::before {
+    content: '#### ';
+  }
+
+  h5::before {
+    content: '##### ';
+  }
+
+  h6::before {
+    content: '###### ';
+  }
+
+  h1::before,
+  h2::before,
+  h3::before,
+  h4::before,
+  h5::before,
+  h6::before {
+    color: var(--color-base02);
+  }
+
+  p {
+    @apply mb-6 mt-0;
+  }
+
+  a {
+    @apply no-underline opacity-50 transition-opacity duration-200 hover:opacity-100;
+  }
+
+  hr {
+    @apply my-6;
+    border: none;
+    border-top: 1px solid var(--color-gruvbox-bg4);
+  }
+
+  ol {
+    margin: 0 0 1.5rem 0;
+    padding-left: 1.75rem;
+  }
+
+  ul {
+    margin: 0 0 1.5rem 0;
+    padding-left: 1.75rem;
+  }
+
+  ol ol,
+  ol ul,
+  ul ul,
+  ul ol {
+    margin: 0;
+  }
+
+  ol li {
+    padding: 0;
+  }
+
+  ul li {
+    padding: 0;
+  }
+
+  ul li::marker {
+    content: '–\00A0';
+    color: var(--color-base02);
+  }
+
+  ol li::marker {
+    color: var(--color-base02);
+  }
+
+  blockquote {
+    margin: 0 0 1.5rem 1.5rem;
+    padding: 0;
+    border: none;
+    color: var(--color-gruvbox-fg4);
+  }
+
+  blockquote p {
+    padding-left: 1rem;
+    text-indent: -1rem;
+  }
+
+  blockquote p::before {
+    content: '>';
+    margin-right: 0.25rem;
+    color: var(--color-base02);
+  }
+
+  pre {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+  }
+
+  /* iOS-specific fixes */
+  @supports (-webkit-touch-callout: none) {
+    code,
+    pre {
+      font-variant-ligatures: none;
+      letter-spacing: 0;
+    }
+  }
+
+  /* Fix horizontal overflow when markup.highlight.lineNos = true */
+  .highlight div {
+    overflow-x: auto;
+  }
+
+  /* Ensure consistent font rendering across different devices. */
+  pre,
+  .highlight {
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+  }
+
+  sub,
+  sup {
+    font-size: 0.85em;
+    position: relative;
+    top: -0.25rem;
+    vertical-align: baseline;
+  }
+
+  sub {
+    top: 0.25rem;
+  }
+
+  table {
+    border-collapse: collapse;
+    border: 1px solid var(--color-gruvbox-bg4);
+    margin: 1.5rem 0;
+    overflow-wrap: anywhere;
+  }
+
+  th,
+  td {
+    border: 1px solid var(--color-gruvbox-bg4);
+    padding: 0.75rem;
+    vertical-align: top;
+  }
+
+  th {
+    text-align: inherit;
+  }
+}

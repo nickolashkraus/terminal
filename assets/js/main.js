@@ -1,5 +1,6 @@
 import { initFootnoteTooltips } from './modules/footnote-tooltips.js'
 import { initTableOfContentsScrollspy } from './modules/table-of-contents-scrollspy.js'
+import { initTableOfContentsToggle } from './modules/table-of-contents-toggle.js'
 
 /**
  * Main JavaScript initialization.
@@ -7,6 +8,7 @@ import { initTableOfContentsScrollspy } from './modules/table-of-contents-scroll
 const initMain = () => {
   initFootnoteTooltips()
   initTableOfContentsScrollspy()
+  initTableOfContentsToggle()
 }
 
 // Initialize when DOM is fully loaded.
@@ -16,3 +18,5 @@ if (document.readyState === 'loading') {
   // DOM already loaded, run immediately.
   initMain()
 }
+
+console.log("Nope, there's only trash here.")

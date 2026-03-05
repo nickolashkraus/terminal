@@ -24,12 +24,31 @@
   --font-fira-mono: 'Fira Mono', monospace;
 
   /* Custom */
-  --color-tooltip-bg: var(--color-ivory-light);
-  --color-tooltip-text: var(--color-slate-medium);
-  --color-code-bg: var(--color-ivory-dark);
-  --color-code-text: var(--color-slate-light);
-  --color-hr: var(--color-slate-light);
-  --color-prose-bullets: var(--color-slate-light);
+  --color-tooltip-bg: var(--color-gruvbox-bg);
+  --color-tooltip-text: var(--color-gruvbox-fg);
+  --color-code-bg: var(--color-gruvbox-bg0-hard);
+  --color-code-text: var(--color-gruvbox-red);
+  --color-hr: var(--color-gruvbox-fg);
+  --color-prose-bullets: var(--color-gruvbox-fg);
+
+  /* Colorscheme */
+  /* TODO: Override colorscheme with colors.css */
+  --color-base00: #282828;
+  --color-base01: #3c3836;
+  --color-base02: #504945;
+  --color-base03: #665c54;
+  --color-base04: #bdae93;
+  --color-base05: #d5c4a1;
+  --color-base06: #ebdbb2;
+  --color-base07: #fbf1c7;
+  --color-base08: #fb4934;
+  --color-base09: #fe8019;
+  --color-base0A: #fabd2f;
+  --color-base0B: #b8bb26;
+  --color-base0C: #8ec07c;
+  --color-base0D: #83a598;
+  --color-base0E: #d3869b;
+  --color-base0F: #d65d0e;
 
   /* Colorscheme */
   --color-gruvbox-bg: #282828;
@@ -85,53 +104,66 @@
     --tw-prose-pre-bg: var(--color-gruvbox-bg);
     --tw-prose-th-borders: var(--color-gruvbox-fg);
     --tw-prose-td-borders: var(--color-gruvbox-fg);
-  }
 
-  .prose pre {
-    line-height: 1.25;
-  }
+    pre {
+      border: 1px solid var(--color-gruvbox-bg4);
+      border-radius: 0;
+      line-height: 1.25;
+    }
 
-  /* Remove backticks around `code` elements. */
-  .prose code::after {
-    content: none;
-  }
+    code {
+      color: var(--color-gruvbox-fg0);
+      background-color: var(--color-gruvbox-bg1);
+      font-weight: 400;
 
-  .prose code::before {
-    content: none;
-  }
+      /* Remove backticks around <code> elements. */
+      &::before,
+      &::after {
+        content: none;
+      }
+    }
 
-  .prose code {
-    background-color: var(--color-code-bg);
-    font-weight: 400;
-  }
+    pre code {
+      background-color: transparent;
+    }
 
-  .prose ol {
-    margin: 0;
-  }
+    ol,
+    ul,
+    li {
+      margin: 0;
+    }
 
-  .prose ul {
-    margin: 0;
-  }
+    blockquote {
+      font-style: normal;
+    }
 
-  .prose li {
-    margin: 0;
-  }
-
-  .prose hr {
-    color: var(--color-code-bg);
-  }
-}
-
-/*
- * Custom utility for hiding footnotes section.
- */
-@utility footnotes-hidden {
-  .footnotes {
-    display: none;
+    blockquote p {
+      /* Remove double-quotes around <blockquote> elements. */
+      /* NOTE: '>' added by assets/css/markdown.css. */
+      &::after {
+        content: none;
+      }
+    }
   }
 }
 
 @layer components {
+  /*
+   * Styling for links.
+   */
+  a {
+    @apply no-underline opacity-50 transition-opacity duration-200 hover:opacity-100;
+  }
+
+  /*
+   * Styling for horizontal rules.
+   */
+  hr {
+    @apply my-6;
+    border: none;
+    border-top: 1px solid var(--color-gruvbox-bg4);
+  }
+
   /*
    * Styling for Hugo generated table of contents.
    *
@@ -145,11 +177,95 @@
     @apply opacity-100;
   }
 
+  /*
+   * Apply `tree`-like styling for table of contents.
+   */
+
+  #TableOfContents > ul {
+    position: relative;
+  }
+
+  /* Vertical connector from "Contents" heading to first item. */
+  #TableOfContents > ul::before {
+    content: '';
+    position: absolute;
+    top: -1rem;
+    left: 0.4rem;
+    width: 1px;
+    height: 1.6rem;
+    background-color: currentColor;
+    opacity: 0.25;
+  }
+
   #TableOfContents ul {
+    list-style: none;
+    padding-left: 1.25rem;
     @apply space-y-2;
   }
 
   #TableOfContents ul ul {
+    position: relative;
+    @apply mt-2;
+  }
+
+  /* Vertical connector from parent item down to first child's branch. */
+  #TableOfContents ul ul::before {
+    content: '';
+    position: absolute;
+    top: -0.5rem;
+    left: 0.4rem;
+    width: 1px;
+    height: 1.1rem;
+    background-color: currentColor;
+    opacity: 0.25;
+  }
+
+  /* Every item draws its own vertical line segment. */
+  #TableOfContents li {
+    position: relative;
+  }
+
+  #TableOfContents li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: -0.5rem;
+    left: -0.85rem;
+    width: 1px;
+    background-color: currentColor;
+    opacity: 0.25;
+  }
+
+  /* First child: vertical line starts at the branch point. */
+  #TableOfContents li:first-child::before {
+    top: 0.6rem;
+  }
+
+  /* Last child: vertical line stops at the branch point. */
+  #TableOfContents li:last-child::before {
+    bottom: auto;
+    height: 0.6rem;
+  }
+
+  /* Only child: no vertical line. */
+  #TableOfContents li:only-child::before {
+    display: none;
+  }
+
+  /* Horizontal branch for each item. */
+  #TableOfContents li::after {
+    content: '';
+    position: absolute;
+    top: 0.6rem;
+    left: -0.85rem;
+    width: 0.65rem;
+    height: 1px;
+    background-color: currentColor;
+    opacity: 0.25;
+  }
+
+  /* Add margin between top-level <ul> elements. */
+  #TableOfContents > ul:not(:first-child) {
     @apply mt-2;
   }
 
@@ -157,9 +273,12 @@
    * Styling for footnote tooltips.
    */
   .footnote-tooltip {
-    @apply invisible absolute mt-4 -ml-40 w-80 p-2 text-sm shadow;
+    @apply invisible absolute mt-4 w-60 p-2 text-sm font-normal shadow;
     background-color: var(--color-tooltip-bg);
     color: var(--color-tooltip-text);
+    border: 1px solid var(--color-gruvbox-bg4);
+    border-radius: 0;
+    line-height: 1.25;
   }
 
   .footnote-tooltip p {
@@ -169,4 +288,60 @@
   .has-footnote-tooltip:hover .footnote-tooltip {
     @apply visible z-50;
   }
+
+  /*
+   * Styling for scrollbars.
+   *
+   * TODO: Fix scrollbar colors.
+   */
+  html {
+    /* Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-gruvbox-bg1) var(--color-gruvbox-bg);
+  }
+
+  /* Webkit browsers */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-gruvbox-bg);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-gruvbox-bg1);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-gruvbox-bg2);
+  }
+
+  /* Improve font rendering across different browsers and operating systems. */
+  /* TODO: Test on mobile. */
+  body {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
 }
+
+/*
+ * Custom utility for hiding footnotes section.
+ */
+@utility footnotes-hidden {
+  .footnotes {
+    display: none;
+  }
+
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+/* Override colors */
+@import 'colors.css';
+
+/* Custom Markdown styling */
+@import 'markdown.css';

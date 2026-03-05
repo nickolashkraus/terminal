@@ -1,0 +1,20 @@
+{{ with site.Params.socials }}
+  <div>
+    <ul class="flex list-none flex-row space-x-4">
+      {{ range . }}
+        <li>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="{{ .url }}"
+            title="{{ .name }}"
+            aria-label="{{ .name }}"
+            class="flex items-center justify-center"
+          >
+            <i class="{{ .icon }} text-lg" aria-hidden="true"></i>
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+{{ end }}

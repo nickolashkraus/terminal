@@ -1,7 +1,7 @@
 # Footnote Reference Tooltips
 
 This theme provides functionality for footnote reference tooltips. For example,
-this is a sentence with a footnote[^1]. This functionality is provided by the
+this is a sentence with a footnote.[^1] This functionality is provided by the
 `footnote-tooltips.js` JavaScript module.
 
 ## What does this module do?
@@ -13,7 +13,7 @@ footnote reference.
 
 ## How does it work?
 
-Hugo (via Goldmark) renders footnotes references as `<sup>` elements with the
+Hugo (via Goldmark) renders footnote references as `<sup>` elements with the
 following form:
 
 **HTML**
@@ -99,7 +99,7 @@ The module exports a single function, `initFootnoteTooltips()`, which creates
 all footnote reference tooltips and adds them to the DOM.
 
 [^1]:
-    Luxury is more than just expensive things. it's an experience, a feeling.
+    Luxury is more than just expensive things. It's an experience, a feeling.
     It's the whisper of silk against your skin, the subtle aroma of a hand-crafted
     perfume, the impeccable service that anticipates your every need. True luxury
     is about quality, craftsmanship, and a sense of effortless ease. It's not about

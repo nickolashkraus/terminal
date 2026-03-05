@@ -1,0 +1,10 @@
+<!--
+  Support for Google Analytics 4 via Hugo's embedded template.
+
+  Documentation:
+    * https://gohugo.io/templates/internal/#google-analytics
+-->
+<!-- Do not use Google Analytics during local development -->
+{{ if not hugo.IsServer }}
+  {{ template "_internal/google_analytics.html" . }}
+{{ end }}

@@ -24,9 +24,9 @@
  *   ----
  *   <nav id="TableOfContents">
  *     <ul>
- *       <li><a href="#heading-1"></a>Heading 1</li>
- *       <li><a href="#heading-2"></a>Heading 2</li>
- *       <li><a href="#heading-3"></a>Heading 3</li>
+ *       <li><a href="#heading-1">Heading 1</a></li>
+ *       <li><a href="#heading-2">Heading 2</a></li>
+ *       <li><a href="#heading-3">Heading 3</a></li>
  *     </ul>
  *   </nav>
  *
@@ -152,10 +152,10 @@ const highlightActiveTocItem = (tocLinks, headings) => {
   // Determine which heading is currently in view.
   let currentHeadingId = null
 
-  // The next heading only supercedes the previous heading if the top of the
+  // The next heading only supersedes the previous heading if the top of the
   // previous heading is negative (i.e., above the viewport) and the current
   // heading is within 25% of the top of the window. This has the effect of
-  // only updating the TOC link when the next heading supercedes the previous
+  // only updating the TOC link when the next heading supersedes the previous
   // heading.
   let prevOffsetTop = Infinity
   headings.forEach((heading) => {

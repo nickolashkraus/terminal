@@ -1,0 +1,19 @@
+@theme {
+  /* Override */
+  --color-base00: #282828;
+  --color-base01: #3c3836;
+  --color-base02: #504945;
+  --color-base03: #665c54;
+  --color-base04: #bdae93;
+  --color-base05: #d5c4a1;
+  --color-base06: #ebdbb2;
+  --color-base07: #fbf1c7;
+  --color-base08: #fb4934;
+  --color-base09: #fe8019;
+  --color-base0A: #fabd2f;
+  --color-base0B: #b8bb26;
+  --color-base0C: #8ec07c;
+  --color-base0D: #83a598;
+  --color-base0E: #d3869b;
+  --color-base0F: #d65d0e;
+}

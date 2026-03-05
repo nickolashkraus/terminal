@@ -1,8 +1,10 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
-  {{ .Content }}
-  {{ range .Pages }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-    {{ .Summary }}
-  {{ end }}
+  <div class="m-auto max-w-4xl pb-4">
+    <!-- NOTE: Gap is one line-height for `text-base` (1.5rem). -->
+    <div class="grid grid-cols-1 gap-6">
+      {{ range .Pages }}
+        {{ .Render "summary" }}
+      {{ end }}
+    </div>
+  </div>
 {{ end }}

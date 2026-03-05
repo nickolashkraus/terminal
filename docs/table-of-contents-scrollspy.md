@@ -84,17 +84,17 @@ To use this module, you'll need:
 Import the module:
 
 ```javascript
-import { initTableOfContents } from './modules/table-of-contents.js'
+import { initTableOfContentsScrollspy } from './modules/table-of-contents-scrollspy.js'
 ```
 
 Then initialize it when your page loads:
 
 ```javascript
 document.addEventListener('DOMContentLoaded', () => {
-  initTableOfContents()
+  initTableOfContentsScrollspy()
 })
 ```
 
-The module exports a single function, `initTableOfContents()`, which sets up
-all necessary event listeners and initializes the highlighting of the currently
-active table of contents item.
+The module exports a single function, `initTableOfContentsScrollspy()`, which
+sets up all necessary event listeners and initializes the highlighting of the
+currently active table of contents item.

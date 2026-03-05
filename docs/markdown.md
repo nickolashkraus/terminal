@@ -20,13 +20,6 @@ Markdown supports six levels of headings, corresponding to HTML's `<h1>` -
 ###### Heading 6
 ```
 
-# Heading 1
-## Heading 2
-### Heading 3
-#### Heading 4
-##### Heading 5
-###### Heading 6
-
 Alternative syntax for heading levels 1 and 2:
 
 ```markdown
@@ -156,7 +149,7 @@ __*Bold and italic mixed*__
 
 * You can also use asterisks
 
-- Or plus signs
++ Or plus signs
 ```
 
 - First item
@@ -168,7 +161,7 @@ __*Bold and italic mixed*__
 
 * You can also use asterisks
 
-- Or plus signs
++ Or plus signs
 
 ### Code
 
@@ -484,14 +477,14 @@ This is a paragraph with <span style="color:red">red text</span>.
 Some popular Markdown editors include:
 
 - **Web-based**:
-  - [StackEdit](https://stackedit.io/)
-  - [Dillinger](https://dillinger.io/)
-  - [HackMD](https://hackmd.io/)
+  - [StackEdit](https://stackedit.io)
+  - [Dillinger](https://dillinger.io)
+  - [HackMD](https://hackmd.io)
 - **Desktop**:
-  - [Typora](https://typora.io/)
-  - [Mark Text](https://marktext.app/)
-  - [Visual Studio Code](https://code.visualstudio.com/) (with Markdown extensions)
-  - [Notable](https://notable.app/)
+  - [Typora](https://typora.io)
+  - [Mark Text](https://marktext.app)
+  - [Visual Studio Code](https://code.visualstudio.com) (with Markdown extensions)
+  - [Notable](https://notable.app)
 - **Mobile**:
   - [iA Writer](https://ia.net/writer)
   - [Markdown Notes](https://apps.apple.com/us/app/markdown-notes/id1471185794)

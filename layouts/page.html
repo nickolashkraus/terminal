@@ -1,10 +1,62 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
+  <!-- Only show a table of contents if it exists. -->
+  {{ $toc := .TableOfContents }}
+  {{ $tocLength := findRE "<li>" $toc | len }}
+  {{ $hasTOC := gt $tocLength 0 }}
 
-  {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-  {{ $dateHuman := .Date | time.Format ":date_long" }}
-  <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+  <!-- TODO: Ensure correct width (72rem = 88 character line length). -->
 
-  {{ .Content }}
-  {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+  <!-- TODO: Fix TOC horizontal overflow. -->
+
+  {{ if $hasTOC }}
+  <div class="m-auto max-w-2xl lg:max-w-4xl">
+    <div class="grid grid-cols-12 gap-4">
+      <div class="hidden lg:col-span-2 lg:block togglable-toc">
+        <aside class="sticky top-0 h-[80vh] w-48 overflow-x-hidden overflow-y-auto lg:max-h-screen">
+          <h2 class="pb-4 text-base">Contents</h2>
+          <div class="mb-12 max-w-full break-words">
+            {{ $toc }}
+          </div>
+          <button class="border p-2 opacity-50" aria-label="Toggle table of contents (Ctrl+N)">← ctrl-n</button>
+        </aside>
+      </div>
+      <div class="hidden lg:col-span-1 lg:block togglable-empty"></div>
+      <div class="col-span-12 lg:col-span-9 togglable-main">
+    {{ else }}
+    <div class="m-auto max-w-2xl">
+      <div>
+    {{ end }}
+        <div class="markdownify">
+          <h1>{{ .Title }}</h1>
+        </div>
+        {{ if .Date }}
+          <div class="pb-2 opacity-50">
+            {{ partial "date.html" (dict "date" .Date) }}
+          </div>
+        {{ end }}
+        <article class="markdownify markdown prose w-full max-w-none pb-2">
+          {{ .Content }}
+        </article>
+        {{ if .Lastmod }}
+          <div class="pb-2 opacity-50">
+            Last updated:
+            {{ partial "date.html" (dict "date" .Lastmod) }}
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  {{ if $hasTOC }}
+  </div>
+  {{ end }}
+{{ end }}
+
+{{ define "aside" }}
+  <hr />
+    {{ if .Description }}
+    <div class="markdown prose footnotes-hidden w-full max-w-none pb-2">
+      {{ .Description | markdownify }}
+    </div>
+  {{ else }}
+    {{ .Summary }}
+  {{ end }}
 {{ end }}

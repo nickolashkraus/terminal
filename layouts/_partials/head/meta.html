@@ -1,0 +1,143 @@
+{{ block "meta_tags" . }}
+  {{ $type := cond .IsPage "article" "website" }}
+  {{ $schemaType := cond .IsPage "Article" "WebSite" }}
+
+
+  <!--
+    The following are configurable via content front matter or the site
+    configuration:
+      - title: Used for title tag
+      - description: Used for meta description, og:description,
+        twitter:description and JSON-LD description property
+  -->
+  {{ $title := cond .IsHome site.Title (printf "%s | %s" .Title site.Title) }}
+  {{ $description := trim (or .Page.Description site.Params.description) " \n\r\t" }}
+
+
+  <!--
+    The following are configurable via content front matter or the site
+    configuration:
+      - author: Used for JSON-LD author property
+      - image: Used for og:image and twitter:image
+      - twitter_card: Used for twitter:card
+      - twitter_site: Used for twitter:site
+      - twitter_creator: Used for twitter:creator
+  -->
+
+  {{ $author := "" }}
+  {{ if .Params.author }}
+    {{ $author = .Params.author }}
+  {{ else if site.Params.author }}
+    {{ $author = site.Params.author }}
+  {{ end }}
+
+  {{ $image := "logo.png" | absURL }}
+  {{ if .Params.image }}
+    {{ $image = .Params.image | absURL }}
+  {{ else if site.Params.seo.image }}
+    {{ $image = site.Params.seo.image | absURL }}
+  {{ end }}
+
+  {{ $twitter_card := "summary" }}
+  {{ if .Params.twitter_card }}
+    {{ $twitter_card = .Params.twitter_card }}
+  {{ else if site.Params.seo.twitter_card }}
+    {{ $twitter_card = site.Params.seo.twitter_card }}
+  {{ end }}
+
+  {{ $twitter_site := "" }}
+  {{ if .Params.twitter_site }}
+    {{ $twitter_site = .Params.twitter_site }}
+  {{ else if site.Params.seo.twitter_site }}
+    {{ $twitter_site = site.Params.seo.twitter_site }}
+  {{ end }}
+
+  {{ $twitter_creator := "" }}
+  {{ if .Params.twitter_creator }}
+    {{ $twitter_creator = .Params.twitter_creator }}
+  {{ else if site.Params.seo.twitter_creator }}
+    {{ $twitter_creator = site.Params.seo.twitter_creator }}
+  {{ end }}
+
+
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ $title }}</title>
+  <meta name="description" content="{{ $description }}" />
+  <link rel="canonical" href="{{ .Permalink }}" />
+
+  <!--
+    Open Graph (Facebook, LinkedIn, WhatsApp, etc.)
+
+    See: https://ogp.me
+  -->
+
+  <!-- Required -->
+  <meta property="og:title" content="{{ cond .IsHome site.Title .Title }}" />
+  <meta property="og:type" content="{{ $type }}" />
+  <meta property="og:image" content="{{ $image }}" />
+  <meta property="og:url" content="{{ .Permalink }}" />
+  <!-- Optional -->
+  <meta property="og:description" content="{{ $description }}" />
+  <meta
+    property="og:locale"
+    content="{{ replace (site.LanguageCode | default "en_US") "-" "_" }}"
+  />
+  <meta property="og:site_name" content="{{ site.Title }}" />
+
+  <!--
+    Twitter (X)
+
+    See: https://developer.x.com/en/docs/x-for-websites/cards/overview/markup
+  -->
+  <!-- Required -->
+  <meta name="twitter:card" content="{{ $twitter_card }}" />
+  {{- if $twitter_site }}
+    <meta name="twitter:site" content="{{ $twitter_site }}" />
+  {{ end }}
+  {{- if $twitter_creator }}
+    <meta name="twitter:creator" content="{{ $twitter_creator }}" />
+  {{ end }}
+  <meta name="twitter:title" content="{{ cond .IsHome site.Title .Title }}" />
+  <meta name="twitter:description" content="{{ $description }}" />
+  <meta name="twitter:image" content="{{ $image }}" />
+
+  <!-- 
+    JSON-LD Structured Data 
+
+    See: https://json-ld.org
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "{{ $schemaType }}",
+    {{- if eq $schemaType "WebSite" }}
+    "name": "{{ site.Title }}",
+    {{- else }}
+    "headline": "{{ .Title }}",
+    {{- end }}
+    "url": "{{ .Permalink }}",
+    "description": "{{ $description }}",
+    {{- if .IsPage }}
+    {{- if .Date }}
+    "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+    {{- end }}
+    {{- if .Lastmod }}
+    "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
+    {{- end }}
+    {{- if $author }}
+    "author": {
+      "@type": "Person",
+      "name": "{{ $author }}"
+    },
+    {{- end }}
+    {{- end }}
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ site.Title }}",
+      "url": "{{ site.BaseURL }}"
+    }
+  }
+  </script>
+{{- end }}
