@@ -87,3 +87,21 @@
   ol li::marker {
     color: var(--color-base02);
   }
+  
+  blockquote {
+    margin: 0 0 1.5rem 1.5rem;
+    padding: 0;
+    border: none;
+    color: var(--color-gruvbox-fg4);
+  }
+
+  blockquote p {
+    padding-left: 1rem;
+    text-indent: -1rem;
+  }
+
+  blockquote p::before {
+    content: ">";
+    margin-right: 0.25rem;
+    color: var(--color-base02);
+  }
