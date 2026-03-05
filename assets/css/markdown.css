@@ -55,16 +55,6 @@
     @apply mb-6 mt-0;
   }
 
-  a {
-    @apply no-underline opacity-50 transition-opacity duration-200 hover:opacity-100;
-  }
-
-  hr {
-    @apply my-6;
-    border: none;
-    border-top: 1px solid var(--color-gruvbox-bg4);
-  }
-
   ol {
     margin: 0 0 1.5rem 0;
     padding-left: 1.75rem;

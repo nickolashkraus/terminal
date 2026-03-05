@@ -1,7 +1,7 @@
-{{ if gt (len site.Params.socials) 0 }}
+{{ with site.Params.socials }}
   <div>
     <ul class="flex list-none flex-row space-x-4">
-      {{ range site.Params.socials }}
+      {{ range . }}
         <li>
           <a
             target="_blank"

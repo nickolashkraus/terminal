@@ -63,7 +63,7 @@ best practices with sensible fallbacks.
 For documentation on configuring SEO and social media appearance, see the
 [documentation](docs/search-engine-optimization.md).
 
-## Social Links (with Font Awesome icons)
+### Social Links (with Font Awesome icons)
 
 Social links (with [Font Awesome](https://fontawesome.com) icons) can be added
 via the configuration file.
