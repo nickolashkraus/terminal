@@ -161,12 +161,91 @@
     @apply opacity-100;
   }
 
+  /*
+   * Apply `tree`-like styling for table of contents.
+   */
+
+  #TableOfContents > ul {
+    position: relative;
+  }
+
+  /* Vertical connector from "Contents" heading to first item. */
+  #TableOfContents > ul::before {
+    content: '';
+    position: absolute;
+    left: 0.4rem;
+    top: -1rem;
+    height: 1.6rem;
+    width: 1px;
+    background-color: currentColor;
+    opacity: 0.25;
+  }
+
   #TableOfContents ul {
     @apply space-y-2;
+    list-style: none;
+    padding-left: 1.25rem;
   }
 
   #TableOfContents ul ul {
-    @apply mt-2 pl-3;
+    @apply mt-2;
+    position: relative;
+  }
+
+  /* Vertical connector from parent item down to first child's branch. */
+  #TableOfContents ul ul::before {
+    content: '';
+    position: absolute;
+    left: 0.4rem;
+    top: -0.5rem;
+    height: 1.1rem;
+    width: 1px;
+    background-color: currentColor;
+    opacity: 0.25;
+  }
+
+  /* Every item draws its own vertical line segment. */
+  #TableOfContents li {
+    position: relative;
+  }
+
+  #TableOfContents li::before {
+    content: '';
+    position: absolute;
+    left: -0.85rem;
+    top: 0;
+    bottom: -0.5rem;
+    width: 1px;
+    background-color: currentColor;
+    opacity: 0.25;
+  }
+
+  /* First child: vertical line starts at the branch point. */
+  #TableOfContents li:first-child::before {
+    top: 0.6rem;
+  }
+
+  /* Last child: vertical line stops at the branch point. */
+  #TableOfContents li:last-child::before {
+    bottom: auto;
+    height: 0.6rem;
+  }
+
+  /* Only child: no vertical line. */
+  #TableOfContents li:only-child::before {
+    display: none;
+  }
+
+  /* Horizontal branch for each item. */
+  #TableOfContents li::after {
+    content: '';
+    position: absolute;
+    left: -0.85rem;
+    top: 0.6rem;
+    width: 0.65rem;
+    height: 1px;
+    background-color: currentColor;
+    opacity: 0.25;
   }
 
   /* Add margin between top-level <ul> elements. */
