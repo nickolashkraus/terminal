@@ -1,4 +1,5 @@
 import { initFootnoteTooltips } from './modules/footnote-tooltips.js'
+import { initMenuToggle } from './modules/menu-toggle.js'
 import { initTableOfContentsScrollspy } from './modules/table-of-contents-scrollspy.js'
 import { initTableOfContentsToggle } from './modules/table-of-contents-toggle.js'
 
@@ -7,6 +8,7 @@ import { initTableOfContentsToggle } from './modules/table-of-contents-toggle.js
  */
 const initMain = () => {
   initFootnoteTooltips()
+  initMenuToggle()
   initTableOfContentsScrollspy()
   initTableOfContentsToggle()
 }

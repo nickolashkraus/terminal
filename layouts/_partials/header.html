@@ -1,5 +1,5 @@
 <div class="m-auto mb-8 mt-8 max-w-6xl">
-  <div class="flex flex-col justify-start space-y-1 sm:flex-row">
+  <div class="flex items-center justify-between md:justify-start">
     <h1 class="mb-0 mr-8 whitespace-nowrap text-lg">
       <a class="bg-bg-alt p-1 opacity-100" href="/">
         <span>[</span>
@@ -7,8 +7,19 @@
         <span>]</span><span class="text-base"> $</span>
       </a>
     </h1>
-    <div class="text-lg">
+    <button
+      class="text-lg opacity-50 hover:opacity-100 md:hidden"
+      id="menu-toggle"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      [=]
+    </button>
+    <div class="hidden text-lg md:block" id="menu-container">
       {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
     </div>
+  </div>
+  <div class="mt-4 hidden text-lg md:hidden" id="mobile-menu">
+    {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
   </div>
 </div>
