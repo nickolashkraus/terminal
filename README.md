@@ -83,34 +83,33 @@ via the configuration file.
 
 ### Colors
 
-The default colorscheme is [Gruvbox Dark][gruvbox]. To override it,
-create `assets/css/colors.css` in the site root. Hugo's asset lookup
-order ensures site-level files take precedence over theme-level files,
-so you never need to modify theme files directly.
+The default colorscheme is [Gruvbox Dark][gruvbox]. To override it, create
+`assets/css/colors.css` in the site root. Hugo's asset lookup order ensures
+site-level files take precedence over theme-level files.
 
 `assets/css/colors.css`
 
 ```css
 @theme {
   /* Backgrounds */
-  --color-bg: #282c34;
-  --color-bg-alt: #21242b;
-  --color-bg-1: #23272e;
-  --color-bg-2: #3f444a;
+  --color-bg: #282828;
+  --color-bg-alt: #1d2021;
+  --color-bg-1: #3c3836;
+  --color-bg-2: #504945;
 
   /* Foregrounds */
-  --color-fg: #bbc2cf;
-  --color-fg-1: #9ca0a4;
-  --color-fg-2: #5b6268;
+  --color-fg: #ebdbb2;
+  --color-fg-1: #d5c4a1;
+  --color-fg-2: #a89984;
 
   /* Borders */
-  --color-border: #5b6268;
+  --color-border: #665c54;
 
   /* Accents */
-  --color-accent: #ff6c6b;
+  --color-accent: #fb4934;
 
   /* Markers */
-  --color-marker: #3f444a;
+  --color-marker: #504945;
 }
 ```
 
@@ -127,13 +126,13 @@ so you never need to modify theme files directly.
 | `--color-accent` | Active links, site title hover                  |
 | `--color-marker` | Heading prefixes, list markers, menu prefix     |
 
-**NOTE**: Hugo's syntax highlighting is configured separately. Update
-the `style` in the site's `hugo.toml` to match your colorscheme:
+**NOTE**: Hugo's syntax highlighting is configured separately. Update the
+`style` in the site's `hugo.toml` to match your colorscheme:
 
 ```toml
 [markup]
   [markup.highlight]
-    style = 'dracula'
+  style = 'gruvbox'
 ```
 
 A list of available styles can be found [here][chroma-styles].

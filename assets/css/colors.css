@@ -5,16 +5,16 @@
  *
  * Gruvbox mappings:
  *
- *   bg        → bg0
- *   bg-alt    → bg0_h
- *   bg-1      → bg1
- *   bg-2      → bg2
- *   fg        → fg1
- *   fg-1      → fg2
- *   fg-2      → fg4
- *   border    → bg3
- *   accent    → red1
- *   marker    → bg2
+ *   bg     → bg0
+ *   bg-alt → bg0_h
+ *   bg-1   → bg1
+ *   bg-2   → bg2
+ *   fg     → fg1
+ *   fg-1   → fg2
+ *   fg-2   → fg4
+ *   border → bg3
+ *   accent → red1
+ *   marker → bg2
  */
 @theme {
   /* Backgrounds */
