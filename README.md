@@ -124,5 +124,10 @@ Run Hugo server:
 
 ```bash
 cd exampleSite/
-hugo server --themesDir ../..
+hugo server --themesDir ../.. --disableFastRender
 ```
+
+**NOTE**: `--disableFastRender` is required. Hugo's fast render mode
+panics due to a [known bug][hugo-13492] with `templates.Defer`.
+
+[hugo-13492]: https://github.com/gohugoio/hugo/issues/13492
