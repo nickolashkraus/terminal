@@ -1,7 +1,7 @@
 name = 'Terminal'
 license = 'MIT'
 licenselink = 'https://github.com/nickolashkraus/terminal/blob/master/LICENSE'
-description = 'A terminal-based Hugo theme using Tailwind CSS and vanilla JavaScript'
+description = 'A minimalist Hugo theme using Tailwind CSS and vanilla JavaScript'
 homepage = 'https://github.com/nickolashkraus/terminal'
 demosite = 'https://terminal.nickolaskraus.io'
 tags = ['blog', 'minimal', 'dark', 'tailwind']

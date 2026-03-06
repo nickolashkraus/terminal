@@ -1,7 +1,7 @@
 {
   "name": "terminal",
   "version": "0.0.1",
-  "description": "A terminal-based Hugo theme using Tailwind CSS and vanilla JavaScript",
+  "description": "A minimalist Hugo theme using Tailwind CSS and vanilla JavaScript",
   "license": "MIT",
   "author": "Nickolas Kraus",
   "scripts": {
