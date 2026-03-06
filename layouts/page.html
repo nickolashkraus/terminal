@@ -4,10 +4,6 @@
   {{ $tocLength := findRE "<li>" $toc | len }}
   {{ $hasTOC := gt $tocLength 0 }}
 
-  <!-- TODO: Ensure correct width (72rem = 88 character line length). -->
-
-  <!-- TODO: Fix TOC horizontal overflow. -->
-
   {{ if $hasTOC }}
   <div class="m-auto max-w-2xl lg:max-w-4xl">
     <div class="grid grid-cols-12 gap-4">
