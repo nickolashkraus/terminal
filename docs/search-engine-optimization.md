@@ -16,7 +16,7 @@ content is discovered, displayed, and ranked.
 
 ## How to use SEO meta tags effectively?
 
-The core set of SEO meta tags fall into two categories:
+The core set of SEO meta tags falls into two categories:
 - **Essential**: Directly impact search engine performance.
 - **Social**: Optimize social media sharing and appearance.
 
@@ -228,7 +228,7 @@ The website's name/brand that appears alongside the title. Creates a "Title
 | Site Name" format in social posts, helping with brand recognition. If the
 object is part of a larger website, the name should be for the overall site.
 
-#### Twitter (X)
+### Twitter (X)
 
 [Twitter tags][Optimize Tweets with X Cards] for Twitter Cards (now X Cards)
 are similar to Open Graph tags, but are specific to how content appears when

@@ -54,7 +54,7 @@ const toggleTOC = (event, tocElement, emptyElement, mainElement, state) => {
     mainElement.classList.add('lg:col-span-9')
   }
 
-  // Update the state
+  // Update the state.
   state.isVisible = !state.isVisible
 }
 
