@@ -17,103 +17,39 @@
 @source 'hugo_stats.json';
 
 @theme {
-  /* Override */
-  --font-display: var(--font-fira-mono);
-
   /* Typography */
+  --font-display: var(--font-fira-mono);
   --font-fira-mono: 'Fira Mono', monospace;
-
-  /* Custom */
-  --color-tooltip-bg: var(--color-gruvbox-bg);
-  --color-tooltip-text: var(--color-gruvbox-fg);
-  --color-code-bg: var(--color-gruvbox-bg0-hard);
-  --color-code-text: var(--color-gruvbox-red);
-  --color-hr: var(--color-gruvbox-fg);
-  --color-prose-bullets: var(--color-gruvbox-fg);
-
-  /* Colorscheme */
-  /* TODO: Override colorscheme with colors.css */
-  --color-base00: #282828;
-  --color-base01: #3c3836;
-  --color-base02: #504945;
-  --color-base03: #665c54;
-  --color-base04: #bdae93;
-  --color-base05: #d5c4a1;
-  --color-base06: #ebdbb2;
-  --color-base07: #fbf1c7;
-  --color-base08: #fb4934;
-  --color-base09: #fe8019;
-  --color-base0A: #fabd2f;
-  --color-base0B: #b8bb26;
-  --color-base0C: #8ec07c;
-  --color-base0D: #83a598;
-  --color-base0E: #d3869b;
-  --color-base0F: #d65d0e;
-
-  /* Colorscheme */
-  --color-gruvbox-bg: #282828;
-  --color-gruvbox-bg0-hard: #1d2021;
-  --color-gruvbox-bg0: #282828;
-  --color-gruvbox-bg0-soft: #32302f;
-  --color-gruvbox-bg1: #3c3836;
-  --color-gruvbox-bg2: #504945;
-  --color-gruvbox-bg3: #665c54;
-  --color-gruvbox-bg4: #7c6f64;
-
-  --color-gruvbox-fg: #ebdbb2;
-  --color-gruvbox-fg0: #fbf1c7;
-  --color-gruvbox-fg1: #ebdbb2;
-  --color-gruvbox-fg2: #d5c4a1;
-  --color-gruvbox-fg3: #bdae93;
-  --color-gruvbox-fg4: #a89984;
-
-  --color-gruvbox-gray-dark: #928374;
-  --color-gruvbox-gray-light: #a89984;
-
-  --color-gruvbox-red: #cc241d;
-  --color-gruvbox-red-bright: #fb4934;
-  --color-gruvbox-green: #98971a;
-  --color-gruvbox-green-bright: #b8bb26;
-  --color-gruvbox-yellow: #d79921;
-  --color-gruvbox-yellow-bright: #fabd2f;
-  --color-gruvbox-blue: #458588;
-  --color-gruvbox-blue-bright: #83a598;
-  --color-gruvbox-purple: #b16286;
-  --color-gruvbox-purple-bright: #d3869b;
-  --color-gruvbox-aqua: #689d6a;
-  --color-gruvbox-aqua-bright: #8ec07c;
-  --color-gruvbox-orange: #d65d0e;
-  --color-gruvbox-orange-bright: #fe8019;
 }
 
 @layer typography {
   .prose {
-    --tw-prose-body: var(--color-gruvbox-fg);
-    --tw-prose-headings: var(--color-gruvbox-fg);
-    --tw-prose-lead: var(--color-gruvbox-fg);
-    --tw-prose-links: var(--color-gruvbox-fg);
-    --tw-prose-bold: var(--color-gruvbox-fg);
-    --tw-prose-counters: var(--color-gruvbox-fg);
-    --tw-prose-bullets: var(--color-gruvbox-fg);
-    --tw-prose-hr: var(--color-gruvbox-fg);
-    --tw-prose-quotes: var(--color-gruvbox-fg);
-    --tw-prose-quote-borders: var(--color-gruvbox-fg);
-    --tw-prose-captions: var(--color-gruvbox-fg);
-    --tw-prose-code: var(--color-gruvbox-fg);
-    --tw-prose-pre-code: var(--color-gruvbox-fg);
-    --tw-prose-pre-bg: var(--color-gruvbox-bg);
-    --tw-prose-th-borders: var(--color-gruvbox-fg);
-    --tw-prose-td-borders: var(--color-gruvbox-fg);
+    --tw-prose-body: var(--color-fg);
+    --tw-prose-headings: var(--color-fg);
+    --tw-prose-lead: var(--color-fg);
+    --tw-prose-links: var(--color-fg);
+    --tw-prose-bold: var(--color-fg);
+    --tw-prose-counters: var(--color-fg);
+    --tw-prose-bullets: var(--color-fg);
+    --tw-prose-hr: var(--color-fg);
+    --tw-prose-quotes: var(--color-fg);
+    --tw-prose-quote-borders: var(--color-fg);
+    --tw-prose-captions: var(--color-fg);
+    --tw-prose-code: var(--color-fg);
+    --tw-prose-pre-code: var(--color-fg);
+    --tw-prose-pre-bg: var(--color-bg);
+    --tw-prose-th-borders: var(--color-fg);
+    --tw-prose-td-borders: var(--color-fg);
 
     pre {
-      border: 1px solid var(--color-gruvbox-bg4);
+      border: 1px solid var(--color-border);
       border-radius: 0;
       line-height: 1.25;
     }
 
     code {
-      color: var(--color-gruvbox-fg0);
-      background-color: var(--color-gruvbox-bg1);
+      color: var(--color-fg-1);
+      background-color: var(--color-bg-1);
       font-weight: 400;
 
       /* Remove backticks around <code> elements. */
@@ -161,7 +97,7 @@
   hr {
     @apply my-6;
     border: none;
-    border-top: 1px solid var(--color-gruvbox-bg4);
+    border-top: 1px solid var(--color-border);
   }
 
   /*
@@ -274,9 +210,9 @@
    */
   .footnote-tooltip {
     @apply invisible absolute mt-4 w-60 p-2 text-sm font-normal shadow;
-    background-color: var(--color-tooltip-bg);
-    color: var(--color-tooltip-text);
-    border: 1px solid var(--color-gruvbox-bg4);
+    background-color: var(--color-bg);
+    color: var(--color-fg);
+    border: 1px solid var(--color-border);
     border-radius: 0;
     line-height: 1.25;
   }
@@ -297,7 +233,7 @@
   html {
     /* Firefox */
     scrollbar-width: thin;
-    scrollbar-color: var(--color-gruvbox-bg1) var(--color-gruvbox-bg);
+    scrollbar-color: var(--color-bg-1) var(--color-bg);
   }
 
   /* Webkit browsers */
@@ -306,16 +242,16 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: var(--color-gruvbox-bg);
+    background: var(--color-bg);
   }
 
   ::-webkit-scrollbar-thumb {
-    background: var(--color-gruvbox-bg1);
+    background: var(--color-bg-1);
     border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-gruvbox-bg2);
+    background: var(--color-bg-2);
   }
 
   /* Improve font rendering across different browsers and operating systems. */

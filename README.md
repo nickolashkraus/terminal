@@ -83,34 +83,62 @@ via the configuration file.
 
 ### Colors
 
-This theme uses [Base16](https://github.com/chriskempson/base16), a framework
-for defining color palettes. To override the default color scheme, create
-a `colors.css` file in `assets/css`:
+The default colorscheme is [Gruvbox Dark][gruvbox]. To override it, create
+`assets/css/colors.css` in the site root. Hugo's asset lookup order ensures
+site-level files take precedence over theme-level files.
+
+`assets/css/colors.css`
 
 ```css
 @theme {
-  /* Override */
-  --color-base00: #002b36;
-  --color-base01: #073642;
-  --color-base02: #586e75;
-  --color-base03: #657b83;
-  --color-base04: #839496;
-  --color-base05: #93a1a1;
-  --color-base06: #eee8d5;
-  --color-base07: #fdf6e3;
-  --color-base08: #dc322f;
-  --color-base09: #cb4b16;
-  --color-base0A: #b58900;
-  --color-base0B: #859900;
-  --color-base0C: #2aa198;
-  --color-base0D: #268bd2;
-  --color-base0E: #6c71c4;
-  --color-base0F: #d33682;
+  /* Backgrounds */
+  --color-bg: #282828;
+  --color-bg-alt: #1d2021;
+  --color-bg-1: #3c3836;
+  --color-bg-2: #504945;
+
+  /* Foregrounds */
+  --color-fg: #ebdbb2;
+  --color-fg-1: #d5c4a1;
+  --color-fg-2: #a89984;
+
+  /* Borders */
+  --color-border: #665c54;
+
+  /* Accents */
+  --color-accent: #fb4934;
+
+  /* Markers */
+  --color-marker: #504945;
 }
 ```
 
-A collection of Base16 color schemes can be found
-[here](https://github.com/monicfenga/base16-styles).
+| Variable         | Used for                                        |
+| ---------------- | ----------------------------------------------- |
+| `--color-bg`     | Page background, scrollbar track                |
+| `--color-bg-alt` | Header background                               |
+| `--color-bg-1`   | Inline code background, scrollbar thumb         |
+| `--color-bg-2`   | Scrollbar thumb hover                           |
+| `--color-fg`     | Primary text                                    |
+| `--color-fg-1`   | Code text                                       |
+| `--color-fg-2`   | Blockquote text                                 |
+| `--color-border` | Tables, code blocks, tooltips, horizontal rules |
+| `--color-accent` | Active links, site title hover                  |
+| `--color-marker` | Heading prefixes, list markers, menu prefix     |
+
+**NOTE**: Hugo's syntax highlighting is configured separately. Update the
+`style` in the site's `hugo.toml` to match your colorscheme:
+
+```toml
+[markup]
+  [markup.highlight]
+  style = 'gruvbox'
+```
+
+A list of available styles can be found [here][chroma-styles].
+
+[gruvbox]: https://github.com/morhetz/gruvbox
+[chroma-styles]: https://xyproto.github.io/splash/docs/
 
 ## Development
 

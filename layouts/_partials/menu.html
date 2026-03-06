@@ -23,9 +23,9 @@
   {{- range .menuEntries }}
     {{- $attrs := dict "href" .URL }}
     {{- if $page.IsMenuCurrent .Menu . }}
-      {{- $attrs = merge $attrs (dict "class" "text-gruvbox-red-bright" "aria-current" "page") }}
+      {{- $attrs = merge $attrs (dict "class" "text-accent" "aria-current" "page") }}
     {{- else if $page.HasMenuCurrent .Menu . }}
-      {{- $attrs = merge $attrs (dict "class" "text-gruvbox-red-bright" "aria-current" "true") }}
+      {{- $attrs = merge $attrs (dict "class" "text-accent" "aria-current" "true") }}
     {{- end }}
     {{- $name := .Name }}
     {{- with .Identifier }}
@@ -39,7 +39,7 @@
       {{- $attrs = merge $attrs (dict "class" "whitespace-nowrap opacity-75 hover:opacity-100") }}
     {{- end }}
     <li>
-      <span class="text-gruvbox-bg2 pr-px">./</span
+      <span class="text-marker pr-px">./</span
       ><a
         {{- range $k, $v := $attrs }}
           {{- with $v }}
