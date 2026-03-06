@@ -1,19 +1,39 @@
+/*
+ * Default colorscheme (Gruvbox Dark).
+ *
+ * To override, create assets/css/colors.css in the site root.
+ *
+ * Gruvbox mappings:
+ *
+ *   bg        → bg0
+ *   bg-alt    → bg0_h
+ *   bg-1      → bg1
+ *   bg-2      → bg2
+ *   fg        → fg1
+ *   fg-1      → fg2
+ *   fg-2      → fg4
+ *   border    → bg3
+ *   accent    → red1
+ *   marker    → bg2
+ */
 @theme {
-  /* Override */
-  --color-base00: #282828;
-  --color-base01: #3c3836;
-  --color-base02: #504945;
-  --color-base03: #665c54;
-  --color-base04: #bdae93;
-  --color-base05: #d5c4a1;
-  --color-base06: #ebdbb2;
-  --color-base07: #fbf1c7;
-  --color-base08: #fb4934;
-  --color-base09: #fe8019;
-  --color-base0A: #fabd2f;
-  --color-base0B: #b8bb26;
-  --color-base0C: #8ec07c;
-  --color-base0D: #83a598;
-  --color-base0E: #d3869b;
-  --color-base0F: #d65d0e;
+  /* Backgrounds */
+  --color-bg: #282828;
+  --color-bg-alt: #1d2021;
+  --color-bg-1: #3c3836;
+  --color-bg-2: #504945;
+
+  /* Foregrounds */
+  --color-fg: #ebdbb2;
+  --color-fg-1: #d5c4a1;
+  --color-fg-2: #a89984;
+
+  /* Borders */
+  --color-border: #665c54;
+
+  /* Accents */
+  --color-accent: #fb4934;
+
+  /* Markers */
+  --color-marker: #504945;
 }
