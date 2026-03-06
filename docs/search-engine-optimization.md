@@ -344,7 +344,7 @@ Checks whether your structured data is correctly formatted and follows
 
 [meta.html]: https://github.com/nickolashkraus/terminal/blob/master/layouts/_partials/head/meta.html
 [Open Graph]: https://ogp.me
-[Optimize Tweets with X Cards]: https://developer.x.com/en/docs/x-for-websites/cards/overview/about-cards
+[Optimize Tweets with X Cards]: https://developer.x.com/en/docs/x-for-websites/cards/overview/abouts-cards
 [JSON-LD]: https://json-ld.org
 [Facebook Sharing Debugger]: https://developers.facebook.com/tools/debug
 [Twitter Card Validator]: https://cards-dev.x.com/validator
